@@ -1,0 +1,1 @@
+# reg-inline-hook-test
