@@ -7,7 +7,6 @@ app.post('/reg', (req, res) => {
     let body = req.body;
     let profile = body.profile;
     profile.hpeProfileId = 123;
-    
     let response = {
         profile: profile,
     }
