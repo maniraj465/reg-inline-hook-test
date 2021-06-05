@@ -17,7 +17,7 @@ app.post('/reg', (req, res) => {
                  "email": req.body.data.userProfile.email,
                  "hpeProfileID": uuid()
               }
-           }
+           },
         ]
      }
     
