@@ -10,7 +10,7 @@ app.post('/reg', (req, res) => {
     let response = {
         "commands":[
            {
-              "type":"com.okta.user.pre-registration",
+              "type":"com.okta.userProfile.update",
               "value":{
                  "firstName": req.body.data.userProfile.firstName,
                  "lastName": req.body.data.userProfile.lastName,
