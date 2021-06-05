@@ -1,32 +1,26 @@
 const express = require('express');
+const {v4:uuid} = require('uuid');
+
 const app = express();
 
 app.use(express.json());
 
 app.post('/reg', (req, res) => {
-    // let body = req.body;
-    // let profile = body.profile;
-    // profile.hpeProfileId = 123;
     
-    // let body = req.body;
-    // let profile = body.profile;
-    let id = 12345
     let response = {
         "commands":[
            {
               "type":"com.okta.user.pre-registration",
               "value":{
-                 "firstName": req.data.userProfile.firstName,
-                 "lastName": req.data.userProfile.lastName,
-                 "email": req.data.userProfile.email,
-                 "password": req.data.userProfile.password,
-                 "hpeProfileId": id
+                 "firstName": req.body.data.userProfile.firstName,
+                 "lastName": req.body.data.userProfile.lastName,
+                 "email": req.body.data.userProfile.email,
+                 "hpeProfileId": uuid()
               }
            }
         ]
      }
     
-    console.log(response);
     res.send(response);
 });
 app.get('/', (req, res) => {
