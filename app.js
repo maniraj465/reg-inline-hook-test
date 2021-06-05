@@ -15,6 +15,14 @@ app.post('/reg', (req, res) => {
     console.log(response);
     res.send(response);
 });
+app.get('/get', (req, res) => {
+    response = {
+        "name": "maniraj",
+        "role": "developer"
+    }
+    console.log(response);
+    res.send(response);
+});
 
 const port = process.env.PORT || '5000';
 app.listen(port, () => console.log(`Server started on Port ${port}`));
