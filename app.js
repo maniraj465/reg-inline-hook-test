@@ -10,12 +10,12 @@ app.post('/reg', (req, res) => {
     let response = {
         "commands":[
            {
-              "type":"com.okta.user.profile.update",
+              "type":"com.okta.user.pre-registration",
               "value":{
                  "firstName": req.body.data.userProfile.firstName,
                  "lastName": req.body.data.userProfile.lastName,
                  "email": req.body.data.userProfile.email,
-                 "hpeProfileId": uuid()
+                 "hpeProfileID": uuid()
               }
            }
         ]
