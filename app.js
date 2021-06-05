@@ -15,7 +15,7 @@ app.post('/reg', (req, res) => {
     console.log(response);
     res.send(response);
 });
-app.get('/get', (req, res) => {
+app.get('/', (req, res) => {
     response = {
         "name": "maniraj",
         "role": "developer"
