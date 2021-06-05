@@ -4,7 +4,7 @@
   "description": "Node Heroku host-test",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "author": "Maniraj",
   "license": "ISC",
