@@ -15,7 +15,7 @@ app.post('/reg', (req, res) => {
                     "firstName": req.body.data.userProfile.firstName,
                     "lastName": req.body.data.userProfile.lastName,
                     "email": req.body.data.userProfile.email,
-                    "confirmPassword": req.body.data.userProfile.confirmPassword,
+                    "password2": req.body.data.userProfile.password2,
                     "countryCode": req.body.data.userProfile.countryCode,	    
                     "timezone": req.body.data.userProfile.timezone,	    
                     "city": req.body.data.userProfile.city,	    
