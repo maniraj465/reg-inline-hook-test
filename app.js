@@ -25,13 +25,7 @@ app.post('/reg', (req, res) => {
                     "organization": req.body.data.userProfile.organization,
                     "hpeProfileID": uuid()
               }
-           },
-           {
-            "type":"com.okta.user.profile.update",
-            "value":{
-               "registration":"ALLOW"
-            }
-         }
+           }
         ]
      }
     res.send(response);
