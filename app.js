@@ -12,24 +12,24 @@ app.post('/reg', (req, res) => {
            {
               "type":"com.okta.user.profile.update",
               "value":{
-                 "firstName": req.body.data.userProfile.firstName,
-                 "lastName": req.body.data.userProfile.lastName,
-                 "email": req.body.data.userProfile.email,
-                 "hpeProfileID": uuid(),
-                 "password2": req.body.data.userProfile.password2
-
                 //  "firstName": req.body.data.userProfile.firstName,
-                // "lastName": req.body.data.userProfile.lastName,
-                // "email": req.body.data.userProfile.email,
-                // "password2": req.body.data.userProfile.password2,
-                // "countryCode": req.body.data.userProfile.countryCode,	    
-                // "timezone": req.body.data.userProfile.timezone,	    
-                // "city": req.body.data.userProfile.city,	    
-                // "mobilePhone": req.body.data.userProfile.mobilePhone,	    
-                // "userType": req.body.data.userProfile.userType,	    
-                // "secondEmail": req.body.data.userProfile.secondEmail,	    
-                // "organization": req.body.data.userProfile.organization,
-                // "hpeProfileID": uuid()
+                //  "lastName": req.body.data.userProfile.lastName,
+                //  "email": req.body.data.userProfile.email,
+                //  "hpeProfileID": uuid(),
+                //  "password2": req.body.data.userProfile.password2
+
+                 "firstName": req.body.data.userProfile.firstName,
+                "lastName": req.body.data.userProfile.lastName,
+                "email": req.body.data.userProfile.email,
+                "password2": req.body.data.userProfile.password2,
+                "countryCode": req.body.data.userProfile.countryCode,	    
+                "timezone": req.body.data.userProfile.timezone,	    
+                "city": req.body.data.userProfile.city,	    
+                "mobilePhone": req.body.data.userProfile.mobilePhone,	    
+                "userType": req.body.data.userProfile.userType,	    
+                "secondEmail": req.body.data.userProfile.secondEmail,	    
+                "organization": req.body.data.userProfile.organization,
+                "hpeProfileID": uuid()
               }
            },
         ]
