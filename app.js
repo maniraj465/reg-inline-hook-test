@@ -15,7 +15,6 @@ app.post('/reg', (req, res) => {
                  "firstName": req.body.data.userProfile.firstName,
                 "lastName": req.body.data.userProfile.lastName,
                 "email": req.body.data.userProfile.email,
-                "password2": req.body.data.userProfile.confirmPassword,
                 "countryCode": req.body.data.userProfile.countryCode,	    
                 "hpeProfileID": uuid()
               }
