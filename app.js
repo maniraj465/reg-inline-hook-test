@@ -15,12 +15,8 @@ app.post('/reg', (req, res) => {
                  "firstName": req.body.data.userProfile.firstName,
                 "lastName": req.body.data.userProfile.lastName,
                 "email": req.body.data.userProfile.email,
-                "password2": req.body.data.userProfile.password2,
+                "password2": req.body.data.userProfile.confirmPassword,
                 "countryCode": req.body.data.userProfile.countryCode,	    
-                "department": req.body.data.userProfile.department,	    
-                "state": req.body.data.userProfile.state,	    
-                "employeeNumber": req.body.data.userProfile.employeeNumber,	    
-                "primaryPhone": req.body.data.userProfile.primaryPhone,
                 "hpeProfileID": uuid()
               }
            },
