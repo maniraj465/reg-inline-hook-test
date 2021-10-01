@@ -34,9 +34,9 @@ app.get('/scim/v2/Users', (req, res) => {
     if (queryParam.includes('userName')) {
       let response ={
         "schemas": [
-            "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+            "urn:ietf:params:scim:schemas:core:2.0:User"
         ],
-        "id": '0ua1ifr0bfNv9FtgT1d7',
+        "id": '939c6caef2eb65494a888d565b0c56551',
         "userName": 'rana.kuldeep@pwc.com',
         "name": {
             "givenName": 'Ranaaaaaaaaaaaaaaaaaaaaaaa',
