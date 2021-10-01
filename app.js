@@ -76,8 +76,7 @@ app.get('/scim/v2/Users', (req, res) => {
 });
 
 app.get('/scim/v2/Users/:profileId', (req, res) => {
-    console.log('req.url=======================' + JSON.stringify(req.url));
-    console.log('req.headers=======================' + JSON.stringify(req.headers));
+
     let response = {
         "schemas": [
             "urn:ietf:params:scim:api:messages:2.0:ListResponse"
@@ -172,7 +171,7 @@ app.patch('/scim/v2/Users/:profileId', (req, res) => {
 app.put('/scim/v2/Users/:profileId', (req, res) => {
     console.log('req.url=======================' + JSON.stringify(req.url));
     console.log('req.headers===================' + JSON.stringify(req.headers));
-    console.log('req.body-------------------' + JSON.stringify(req));
+    console.log('req.body-------------------' + JSON.stringify(req.body));
     // const givenName = req.body.name.givenName;
     // const middleName = req.body.name.middleName;
     // const familyName = req.body.name.familyName;
