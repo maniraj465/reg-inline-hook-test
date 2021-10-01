@@ -36,8 +36,11 @@ app.get('/scim/v2/Users', (req, res) => {
     const id = '939c6caef2eb65494a888d565b0c56551';
   if (queryParam.trim().length > 0) {
     if (queryParam.includes('userName')) {
-      const email = queryParam.split('"')[1];
-      let response = {
+    
+    }
+    }
+    //   const email = queryParam.split('"')[1];
+    let response = {
         "schemas": [
             "urn:ietf:params:scim:api:messages:2.0:ListResponse"
         ],
@@ -77,8 +80,6 @@ app.get('/scim/v2/Users', (req, res) => {
     
     console.log(response);
     res.send(response);
-    }
-    }
 });
 
 app.get('/scim/v2/Users/:profileId', (req, res) => {
