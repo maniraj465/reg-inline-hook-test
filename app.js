@@ -37,29 +37,7 @@ app.get('/scim/v2/Users', (req, res) => {
         "itemsPerPage": 0,
         "Resources": []
     };
-    let ress = {
-        "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
-        "id": "23a35c27-23d3-4c03-b4c5-6443c09e7173",
-        "userName": "test.user@okta.local",
-        "name": {
-            "givenName": "Test",
-            "middleName": "",
-            "familyName": "User"
-        },
-        "active": true,
-        "emails": [{
-            "primary": true,
-            "value": "test.user@okta.local",
-            "type": "work",
-            "display": "test.user@okta.local"
-        }],
-        "groups": [],
-        "meta": {
-            "resourceType": "User"
-        }
-    };
-    
-    res.send(ress);
+    res.send(response);
 });
 
 app.get('/', (req, res) => {
