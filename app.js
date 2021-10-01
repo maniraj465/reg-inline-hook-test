@@ -4,12 +4,7 @@ const {v4:uuid} = require('uuid');
 const app = express();
 
 
-app.use(function (req, res, next) {
-    req.headers['content-type'] = 'text/json';
-    req.headers['Accept'] = '*/*';
-    req.headers['accept-encoding'] = 'gzip, deflate, br';
-    next();
-});
+app.use(express.json());
 
 app.post('/reg', (req, res) => {
     
