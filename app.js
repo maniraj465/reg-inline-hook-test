@@ -34,11 +34,11 @@ app.get('/scim/v2/Users', (req, res) => {
     console.log('req.headers=======================' + JSON.stringify(req.headers));
     const queryParam = req.query.filter;
     const id = '939c6caef2eb65494a888d565b0c56551';
-  if (queryParam.trim().length > 0) {
-    if (queryParam.includes('userName')) {
+//   if (queryParam.trim().length > 0) {
+//     if (queryParam.includes('userName')) {
     
-    }
-    }
+//     }
+//     }
     //   const email = queryParam.split('"')[1];
     let response = {
         "schemas": [
