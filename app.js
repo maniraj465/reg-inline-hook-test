@@ -37,10 +37,9 @@ app.get('/scim/v2/Users', (req, res) => {
         "schemas": [
             "urn:ietf:params:scim:api:messages:2.0:ListResponse"
         ],
-        "id": profileId,
-        "totalResults": 0,
+        "totalResults": 1,
         "startIndex": 1,
-        "itemsPerPage": 0,
+        "itemsPerPage": 1,
         "Resources": [
             {
                 "schemas": [
@@ -50,7 +49,7 @@ app.get('/scim/v2/Users', (req, res) => {
                 "userName": 'rana.kuldeep@pwc.com',
                 "name": {
                     "givenName": 'Ranaaaaaaaaaaaaaaaaaaaaaaa',
-                    "middleName": '',
+                    "middleName": 'middleName',
                     "familyName": 'Kuldeep'
                 },
                 "emails": [
