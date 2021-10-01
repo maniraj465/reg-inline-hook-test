@@ -60,7 +60,7 @@ app.get('/scim/v2/Users', (req, res) => {
             "schemas": [
                 "urn:ietf:params:scim:api:messages:2.0:ListResponse"
             ],
-            "id": '939c6caef2eb65494a888d565b0c56888';
+            "id": '939c6caef2eb65494a888d565b0c56888',
             "totalResults": 1,
             "startIndex": 1,
             "itemsPerPage": 0,
