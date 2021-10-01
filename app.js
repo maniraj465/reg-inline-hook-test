@@ -37,7 +37,7 @@ app.get('/scim/v2/Users', (req, res) => {
         "itemsPerPage": 0,
         "Resources": []
     };
-    let res = {
+    let ress = {
         "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
         "id": "23a35c27-23d3-4c03-b4c5-6443c09e7173",
         "userName": "test.user@okta.local",
@@ -59,7 +59,7 @@ app.get('/scim/v2/Users', (req, res) => {
         }
     };
     
-    res.send(res);
+    res.send(ress);
 });
 
 app.get('/', (req, res) => {
