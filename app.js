@@ -4,8 +4,7 @@ const {v4:uuid} = require('uuid');
 const app = express();
 
 
-//app.use(express.json());
-app.use(express.bodyParser());
+app.use(express.json());
 
 app.post('/reg', (req, res) => {
     
@@ -95,7 +94,7 @@ app.get('/scim/v2/Users/:profileId', (req, res) => {
 app.patch('/scim/v2/Users/:profileId', (req, res) => {
     console.log('req.url=======================' + JSON.stringify(req.url));
     console.log('req.headers=======================' + JSON.stringify(req.headers));
-    console.log('req.body-------------------' + JSON.stringify(req.body));
+    console.dir(req.body);
     // const givenName = req.body.name.givenName;
     // const middleName = req.body.name.middleName;
     // const familyName = req.body.name.familyName;
@@ -172,7 +171,7 @@ app.patch('/scim/v2/Users/:profileId', (req, res) => {
 app.put('/scim/v2/Users/:profileId', (req, res) => {
     console.log('req.url=======================' + JSON.stringify(req.url));
     console.log('req.headers===================' + JSON.stringify(req.headers));
-    console.log('req.body-------------------' + JSON.stringify(req.body));
+    console.dir(req.body);
     // const givenName = req.body.name.givenName;
     // const middleName = req.body.name.middleName;
     // const familyName = req.body.name.familyName;
