@@ -7,8 +7,9 @@ const app = express();
 app.use(express.json());
 app.use(function (req, res, next) {
     req.headers['content-type'] = 'text/json';
+    req.headers['Accept'] = 'application/scim+json';
     next();
-  });
+});
 app.post('/reg', (req, res) => {
     
     let response = {
