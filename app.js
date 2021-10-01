@@ -1,12 +1,11 @@
 const express = require('express');
 const {v4:uuid} = require('uuid');
-const bodyParser = require('body-parser');
 
 const app = express();
 
 
 app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+
 app.post('/reg', (req, res) => {
     
     let response = {
@@ -69,7 +68,9 @@ app.get('/scim/v2/Users', (req, res) => {
             }
         ]
     };
-      
+    response.setHeader('Content-Type', 'text/json;charset=UTF-8');
+    // response.setHeader('charset', 'UTF-8');
+    
     console.log(response);
     res.send(response);
     }
