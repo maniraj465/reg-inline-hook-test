@@ -55,7 +55,7 @@ app.get('/scim/v2/Users', (req, res) => {
                 "id": '939c6caef2eb65494a888d565b0c56551',
                 "userName": 'rana.kuldeep@pwc.com',
                 "name": {
-                    "givenName": 'Ranaaaaaaaaaaaaaaaaaaaaaaa',
+                    "givenName": 'RanaaaaaaaaaaaaaaaaaaaaaaaA',
                     "middleName": 'middleName',
                     "familyName": 'Kuldeep'
                 },
@@ -228,7 +228,7 @@ app.put('/scim/v2/Users/:profileId', (req, res) => {
                 "id": '939c6caef2eb65494a888d565b0c56551',
                 "userName": 'rana.kuldeep@pwc.com',
                 "name": {
-                    "givenName": 'Ranaaaaaaaaaaaaaaaaaaaaaaa',
+                    "givenName": 'RanaaaaaaaaaaaaaaaaaaaaaaaA',
                     "middleName": 'middleName',
                     "familyName": 'Kuldeep'
                 },
