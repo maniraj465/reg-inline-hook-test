@@ -43,7 +43,7 @@ app.get('/scim/v2/Users', (req, res) => {
         "Resources": [
             {
                 "schemas": [
-                    "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+                    "urn:ietf:params:scim:schemas:core:2.0:User"
                 ],
                 "id": '939c6caef2eb65494a888d565b0c56551',
                 "userName": 'rana.kuldeep@pwc.com',
