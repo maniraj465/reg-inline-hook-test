@@ -4,10 +4,8 @@ const {v4:uuid} = require('uuid');
 const app = express();
 
 
-app.use(express.json());
 app.use(function (req, res, next) {
-    req.headers['content-type'] = 'application/scim+json';
-    req.headers['Accept'] = 'application/scim+json';
+    req.headers['content-type'] = 'text/json;charset=UTF-8';
     next();
 });
 app.post('/reg', (req, res) => {
