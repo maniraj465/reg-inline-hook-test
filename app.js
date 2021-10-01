@@ -173,10 +173,10 @@ app.patch('/scim/v2/Users/:profileId', (req, res) => {
 
 
 app.put("/scim/v2/Users/:userId", function (req, res) {
-	var userId = req.params.userId;
-	var url_parts = url.parse(req.url, true);
-	var req_url = url_parts.pathname;
-  var requestBody = "";
+// 	var userId = req.params.userId;
+// 	var url_parts = url.parse(req.url, true);
+// 	var req_url = url_parts.pathname;
+//   var requestBody = "";
 	
   req.on('data', function (data) {
     requestBody += data;
