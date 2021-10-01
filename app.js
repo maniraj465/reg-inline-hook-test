@@ -5,7 +5,10 @@ const app = express();
 
 
 app.use(express.json());
-
+app.use(function (req, res, next) {
+    req.headers['content-type'] = 'text/json';
+    next();
+  });
 app.post('/reg', (req, res) => {
     
     let response = {
@@ -68,7 +71,7 @@ app.get('/scim/v2/Users', (req, res) => {
             }
         ]
     };
-    response.setHeader('Content-Type', 'text/json;charset=UTF-8');
+    //response.setHeader('Content-Type', 'text/json;charset=UTF-8');
     // response.setHeader('charset', 'UTF-8');
     
     console.log(response);
