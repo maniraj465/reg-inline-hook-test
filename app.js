@@ -26,8 +26,8 @@ app.post('/reg', (req, res) => {
 });
 app.get('/scim/v2/Users', (req, res) => {
     
-    console.log('req.body=======================' + JSON.stringify(req.body));
-    res.send('yes');
+    console.log('req.url=======================' + JSON.stringify(req.url));
+    console.log('req.headers=======================' + JSON.stringify(req.headers));
 });
 
 app.get('/', (req, res) => {
