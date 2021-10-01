@@ -24,6 +24,14 @@ app.post('/reg', (req, res) => {
     
     res.send(response);
 });
+app.get('/scim/v2/Users/:profileId', (req, res) => {
+    
+    console.log('profileId/////////////////////////'+profileId);
+    console.log('req=======================' + req);
+    console.log('req.body=======================' + req.body);
+    res.send(response);
+});
+
 app.get('/', (req, res) => {
     response = {
         "name": "maniraj",
