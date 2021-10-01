@@ -3,7 +3,16 @@ const {v4:uuid} = require('uuid');
 
 const app = express();
 
+
 app.use(express.json());
+
+
+const allowCrossDomain = function (req, res, next) {
+    console.log('req.url>>>>>>>>>>>>>>>>>>>>>>>>>> '+ JSON.stringify(req.url));
+    console.log('req.headers<<<<<<<<<<<<<<<<<<<<<<<<<<<' + JSON.stringify(req.headers));
+    next();
+  };
+app.use(allowCrossDomain);
 
 app.post('/reg', (req, res) => {
     
