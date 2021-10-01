@@ -6,14 +6,6 @@ const app = express();
 
 app.use(express.json());
 
-
-const allowCrossDomain = function (req, res, next) {
-    console.log('req.url>>>>>>>>>>>>>>>>>>>>>>>>>> '+ JSON.stringify(req.url));
-    console.log('req.headers<<<<<<<<<<<<<<<<<<<<<<<<<<<' + JSON.stringify(req.headers));
-    next();
-  };
-app.use(allowCrossDomain);
-
 app.post('/reg', (req, res) => {
     
     let response = {
@@ -43,15 +35,30 @@ app.get('/scim/v2/Users', (req, res) => {
       const email = queryParam.split('"')[1];
       if (!email) {
           console.log(email);
-        let response = {
+          let response ={
             "schemas": [
                 "urn:ietf:params:scim:api:messages:2.0:ListResponse"
             ],
-            "id": id,
-            "totalResults": 1,
-            "startIndex": 1,
-            "itemsPerPage": 0,
-            "Resources": []
+            "id": '939c6caef2eb65494a888d565b0c56551',
+            "userName": 'rana.kuldeep@pwc.com',
+            "name": {
+                "givenName": 'Ranaaaaaaaaaaaaaaaaaaaaaaa',
+                "middleName": '',
+                "familyName": 'Kuldeep'
+            },
+            "emails": [
+                {
+                    "primary": true,
+                    "value": 'rana.kuldeep@pwc.com',
+                    "type": 'work',
+                    "display": 'rana.kuldeep@pwc.com'
+                }
+            ],
+            "active": true,
+            "groups": [],
+            "meta": {
+                "resourceType": "User"
+            }
         };
         console.log(response);
         res.send(response);
