@@ -24,7 +24,7 @@ app.post('/reg', (req, res) => {
     
     res.send(response);
 });
-app.get('/scim/v2/Users/:profileId', (req, res) => {
+app.get('/scim/v2/Users', (req, res) => {
     
     console.log('profileId/////////////////////////'+profileId);
     console.log('req=======================' + req);
