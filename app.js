@@ -4,7 +4,8 @@ const {v4:uuid} = require('uuid');
 const app = express();
 
 
-app.use(express.json());
+//app.use(express.json());
+app.use(express.bodyParser());
 
 app.post('/reg', (req, res) => {
     
