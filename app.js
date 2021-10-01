@@ -24,10 +24,20 @@ app.post('/reg', (req, res) => {
     
     res.send(response);
 });
-app.get('/scim/v2/Users/:email', (req, res) => {
-    console.log('email' + email);
+app.get('/scim/v2/Users', (req, res) => {
     console.log('req.url=======================' + JSON.stringify(req.url));
     console.log('req.headers=======================' + JSON.stringify(req.headers));
+    let response = {
+        "schemas": [
+            "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+        ],
+        "id": "939c6caef2eb65494a888d565b0c55a0",
+        "totalResults": 0,
+        "startIndex": 1,
+        "itemsPerPage": 0,
+        "Resources": []
+    };
+    res.send(response);
 });
 
 app.get('/', (req, res) => {
