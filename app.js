@@ -32,35 +32,48 @@ app.get('/scim/v2/Users', (req, res) => {
     const id = '939c6caef2eb65494a888d565b0c56551';
   if (queryParam.trim().length > 0) {
     if (queryParam.includes('userName')) {
-      let response ={
+      const email = queryParam.split('"')[1];
+      let response = {
         "schemas": [
-            "urn:ietf:params:scim:schemas:core:2.0:User"
+            "urn:ietf:params:scim:api:messages:2.0:ListResponse"
         ],
-        "id": '939c6caef2eb65494a888d565b0c56551',
-        "userName": 'rana.kuldeep@pwc.com',
-        "name": {
-            "givenName": 'Ranaaaaaaaaaaaaaaaaaaaaaaa',
-            "middleName": '',
-            "familyName": 'Kuldeep'
-        },
-        "emails": [
+        "id": profileId,
+        "totalResults": 0,
+        "startIndex": 1,
+        "itemsPerPage": 0,
+        "Resources": [
             {
-                "primary": true,
-                "value": 'rana.kuldeep@pwc.com',
-                "type": 'work',
-                "display": 'rana.kuldeep@pwc.com'
+                "schemas": [
+                    "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+                ],
+                "id": '939c6caef2eb65494a888d565b0c56551',
+                "userName": 'rana.kuldeep@pwc.com',
+                "name": {
+                    "givenName": 'Ranaaaaaaaaaaaaaaaaaaaaaaa',
+                    "middleName": '',
+                    "familyName": 'Kuldeep'
+                },
+                "emails": [
+                    {
+                        "primary": true,
+                        "value": 'rana.kuldeep@pwc.com',
+                        "type": 'work',
+                        "display": 'rana.kuldeep@pwc.com'
+                    }
+                ],
+                "active": true,
+                "groups": [],
+                "meta": {
+                    "resourceType": "User"
+                }
             }
-        ],
-        "active": true,
-        "groups": [],
-        "meta": {
-            "resourceType": "User"
-        }
+        ]
     };
+      
     console.log(response);
     res.send(response);
     }
-  }
+    }
 });
 
 app.get('/scim/v2/Users/:profileId', (req, res) => {
