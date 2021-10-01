@@ -4,10 +4,8 @@ const {v4:uuid} = require('uuid');
 const app = express();
 
 
-app.use(function (req, res, next) {
-    req.headers['content-type'] = 'text/json;charset=UTF-8';
-    next();
-});
+app.use(express.json());
+
 app.post('/reg', (req, res) => {
     
     let response = {
@@ -173,82 +171,143 @@ app.patch('/scim/v2/Users/:profileId', (req, res) => {
     res.send(response);
 });
 
-app.put('/scim/v2/Users/:profileId', (req, res) => {
-    console.log('req.url=======================' + JSON.stringify(req.url));
-    console.log('req.headers===================' + JSON.stringify(req.headers));
-    console.dir(req);
-    // const givenName = req.body.name.givenName;
-    // const middleName = req.body.name.middleName;
-    // const familyName = req.body.name.familyName;
-    // const emailPrimary = req.body.emails[0].primary;
-    // const emailValue = req.body.emails[0].value;
-    // const emailType = req.body.emails[0].type;
-    // const emailDisplay = req.body.emails[0].display;
-    // const userName = req.body.userName;
-    // const id = req.body.id;
-    // let response ={
-    //     "schemas": [
-    //         "urn:ietf:params:scim:api:messages:2.0:ListResponse"
-    //     ],
-    //     "id": id,
-    //     "userName": userName,
-    //     "name": {
-    //         "givenName": givenName,
-    //         "middleName": middleName,
-    //         "familyName": familyName
-    //     },
-    //     "emails": [
-    //         {
-    //             "primary": emailPrimary,
-    //             "value": emailValue,
-    //             "type": emailType,
-    //             "display": emailDisplay
-    //         }
-    //     ],
-    //     "active": true,
-    //     "groups": [],
-    //     "meta": {
-    //         "resourceType": "User"
-    //     }
-    // };
-    let response = {
-        "schemas": [
-            "urn:ietf:params:scim:api:messages:2.0:ListResponse"
-        ],
-        "totalResults": 1,
-        "startIndex": 1,
-        "itemsPerPage": 1,
-        "Resources": [
-            {
-                "schemas": [
-                    "urn:ietf:params:scim:schemas:core:2.0:User"
-                ],
-                "id": '939c6caef2eb65494a888d565b0c56551',
-                "userName": 'rana.kuldeep@pwc.com',
-                "name": {
-                    "givenName": 'RanaaaaaaaaaaaaaaaaaaaaaaaA',
-                    "middleName": 'middleName',
-                    "familyName": 'Kuldeep'
-                },
-                "emails": [
-                    {
-                        "primary": true,
-                        "value": 'rana.kuldeep@pwc.com',
-                        "type": 'work',
-                        "display": 'rana.kuldeep@pwc.com'
-                    }
-                ],
-                "active": true,
-                "groups": [],
-                "meta": {
-                    "resourceType": "User"
+
+app.put("/scim/v2/Users/:userId", function (req, res) {
+	var userId = req.params.userId;
+	var url_parts = url.parse(req.url, true);
+	var req_url = url_parts.pathname;
+  var requestBody = "";
+	
+  req.on('data', function (data) {
+    requestBody += data;
+
+		var userJsonData = JSON.parse(requestBody);
+        console.log(userJsonData);
+		// var active = userJsonData['active'];
+		// var userName = userJsonData['userName'];
+		// var givenName = userJsonData["name"]["givenName"];
+		// var middleName = userJsonData["name"]["middleName"];
+		// var familyName = userJsonData["name"]["familyName"];
+    
+  });
+  console.log(requestBody);
+  let response = {
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+    ],
+    "totalResults": 1,
+    "startIndex": 1,
+    "itemsPerPage": 1,
+    "Resources": [
+        {
+            "schemas": [
+                "urn:ietf:params:scim:schemas:core:2.0:User"
+            ],
+            "id": '939c6caef2eb65494a888d565b0c56551',
+            "userName": 'rana.kuldeep@pwc.com',
+            "name": {
+                "givenName": 'RanaaaaaaaaaaaaaaaaaaaaaaaA',
+                "middleName": 'middleName',
+                "familyName": 'Kuldeep'
+            },
+            "emails": [
+                {
+                    "primary": true,
+                    "value": 'rana.kuldeep@pwc.com',
+                    "type": 'work',
+                    "display": 'rana.kuldeep@pwc.com'
                 }
+            ],
+            "active": true,
+            "groups": [],
+            "meta": {
+                "resourceType": "User"
             }
-        ]
-    };
-    console.log(response);
-    res.send(response);
+        }
+    ]
+};
+console.log(response);
+res.send(response);
 });
+
+
+
+// app.put('/scim/v2/Users/:profileId', (req, res) => {
+//     console.log('req.url=======================' + JSON.stringify(req.url));
+//     console.log('req.headers===================' + JSON.stringify(req.headers));
+//     console.dir(req);
+//     // const givenName = req.body.name.givenName;
+//     // const middleName = req.body.name.middleName;
+//     // const familyName = req.body.name.familyName;
+//     // const emailPrimary = req.body.emails[0].primary;
+//     // const emailValue = req.body.emails[0].value;
+//     // const emailType = req.body.emails[0].type;
+//     // const emailDisplay = req.body.emails[0].display;
+//     // const userName = req.body.userName;
+//     // const id = req.body.id;
+//     // let response ={
+//     //     "schemas": [
+//     //         "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+//     //     ],
+//     //     "id": id,
+//     //     "userName": userName,
+//     //     "name": {
+//     //         "givenName": givenName,
+//     //         "middleName": middleName,
+//     //         "familyName": familyName
+//     //     },
+//     //     "emails": [
+//     //         {
+//     //             "primary": emailPrimary,
+//     //             "value": emailValue,
+//     //             "type": emailType,
+//     //             "display": emailDisplay
+//     //         }
+//     //     ],
+//     //     "active": true,
+//     //     "groups": [],
+//     //     "meta": {
+//     //         "resourceType": "User"
+//     //     }
+//     // };
+//     let response = {
+//         "schemas": [
+//             "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+//         ],
+//         "totalResults": 1,
+//         "startIndex": 1,
+//         "itemsPerPage": 1,
+//         "Resources": [
+//             {
+//                 "schemas": [
+//                     "urn:ietf:params:scim:schemas:core:2.0:User"
+//                 ],
+//                 "id": '939c6caef2eb65494a888d565b0c56551',
+//                 "userName": 'rana.kuldeep@pwc.com',
+//                 "name": {
+//                     "givenName": 'RanaaaaaaaaaaaaaaaaaaaaaaaA',
+//                     "middleName": 'middleName',
+//                     "familyName": 'Kuldeep'
+//                 },
+//                 "emails": [
+//                     {
+//                         "primary": true,
+//                         "value": 'rana.kuldeep@pwc.com',
+//                         "type": 'work',
+//                         "display": 'rana.kuldeep@pwc.com'
+//                     }
+//                 ],
+//                 "active": true,
+//                 "groups": [],
+//                 "meta": {
+//                     "resourceType": "User"
+//                 }
+//             }
+//         ]
+//     };
+//     console.log(response);
+//     res.send(response);
+// });
 
 
 app.get('/', (req, res) => {
