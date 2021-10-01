@@ -26,7 +26,6 @@ app.post('/reg', (req, res) => {
 });
 app.get('/scim/v2/Users', (req, res) => {
     
-    console.log('profileId/////////////////////////'+profileId);
     console.log('req=======================' + req);
     console.log('req.body=======================' + req.body);
     res.send(response);
