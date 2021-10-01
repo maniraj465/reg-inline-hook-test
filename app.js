@@ -36,15 +36,36 @@ app.post('/reg', (req, res) => {
 app.get('/scim/v2/Users', (req, res) => {
     console.log('req.url=======================' + JSON.stringify(req.url));
     console.log('req.headers=======================' + JSON.stringify(req.headers));
+    // let response = {
+    //     "schemas": [
+    //         "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+    //     ],
+    //     "id": "939c6caef2eb65494a888d565b0c55a0",
+    //     "totalResults": 1,
+    //     "startIndex": 1,
+    //     "itemsPerPage": 0,
+    //     "Resources": []
+    // };
     let response = {
-        "schemas": [
-            "urn:ietf:params:scim:api:messages:2.0:ListResponse"
-        ],
-        "id": "939c6caef2eb65494a888d565b0c55a0",
-        "totalResults": 0,
-        "startIndex": 1,
-        "itemsPerPage": 0,
-        "Resources": []
+        "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
+        "id": "23a35c27-23d3-4c03-b4c5-6443c09e7173",
+        "userName": "test.user@okta.local",
+        "name": {
+            "givenName": "Another",
+            "middleName": "",
+            "familyName": "User"
+        },
+        "emails": [{
+            "primary": true,
+            "value": "test.user@okta.local",
+            "type": "work",
+            "display": "test.user@okta.local"
+        }],
+        "active": true,
+        "groups": [],
+        "meta": {
+            "resourceType": "User"
+        }
     };
     console.log(response);
     res.send(response);
