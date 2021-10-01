@@ -171,7 +171,7 @@ app.patch('/scim/v2/Users/:profileId', (req, res) => {
 app.put('/scim/v2/Users/:profileId', (req, res) => {
     console.log('req.url=======================' + JSON.stringify(req.url));
     console.log('req.headers===================' + JSON.stringify(req.headers));
-    console.dir(req.body);
+    console.dir(req);
     // const givenName = req.body.name.givenName;
     // const middleName = req.body.name.middleName;
     // const familyName = req.body.name.familyName;
