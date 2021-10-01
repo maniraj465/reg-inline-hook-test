@@ -62,15 +62,6 @@ app.patch('/scim/v2/Users/:profileId', (req, res) => {
     console.log('req.url=======================' + JSON.stringify(req.url));
     console.log('req.headers=======================' + JSON.stringify(req.headers));
     console.log('req.body-------------------' + JSON.stringify(req.body));
-    const userName = req.body.userName;
-    const id = req.body.id;
-    const givenName = req.body.name.givenName;
-    const middleName = req.body.name.middleName;
-    const familyName = req.body.name.familyName;
-    const emailPrimary = req.body.emails[0].primary;
-    const emailValue = req.body.emails[0].value;
-    const emailType = req.body.emails[0].type;
-    const emailDisplay = req.body.emails[0].display;
     const givenName = req.body.name.givenName;
     const middleName = req.body.name.middleName;
     const familyName = req.body.name.familyName;
