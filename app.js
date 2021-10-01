@@ -1,11 +1,12 @@
 const express = require('express');
 const {v4:uuid} = require('uuid');
+const bodyParser = require('body-parser');
 
 const app = express();
 
 
 app.use(express.json());
-
+app.use(bodyParser.urlencoded({ extended: true }));
 app.post('/reg', (req, res) => {
     
     let response = {
