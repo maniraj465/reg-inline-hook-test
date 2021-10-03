@@ -90,14 +90,20 @@ app.get('/scim/v2/Users/:profileId', (req, res) => {
         "itemsPerPage": 0,
         "Resources": []
     };
-    console.log(response);
+    // console.log(response);
     res.send(response);
 });
 
 app.patch('/scim/v2/Users/:profileId', (req, res) => {
     console.log('req.url=======================' + JSON.stringify(req.url));
     console.log('req.headers=======================' + JSON.stringify(req.headers));
-    console.dir(req.body);
+    req.on('data', function (data) {
+        requestBody += data;
+        var userJsonData = JSON.parse(requestBody);
+        console.log(userJsonData);
+    
+      });
+
     // const givenName = req.body.name.givenName;
     // const middleName = req.body.name.middleName;
     // const familyName = req.body.name.familyName;
@@ -167,7 +173,6 @@ app.patch('/scim/v2/Users/:profileId', (req, res) => {
             }
         ]
     };
-    console.log(response);
     res.send(response);
 });
 
@@ -177,20 +182,14 @@ app.put("/scim/v2/Users/:userId", function (req, res) {
 // 	var url_parts = url.parse(req.url, true);
 // 	var req_url = url_parts.pathname;
   var requestBody = "";
-	
+  console.log('req.url=======================' + JSON.stringify(req.url));
+  console.log('req.headers=======================' + JSON.stringify(req.headers));
   req.on('data', function (data) {
     requestBody += data;
+    var userJsonData = JSON.parse(requestBody);
+    console.log(userJsonData);
 
-		var userJsonData = JSON.parse(requestBody);
-        console.log(userJsonData);
-		// var active = userJsonData['active'];
-		// var userName = userJsonData['userName'];
-		// var givenName = userJsonData["name"]["givenName"];
-		// var middleName = userJsonData["name"]["middleName"];
-		// var familyName = userJsonData["name"]["familyName"];
-    
   });
-  console.log(requestBody);
   let response = {
     "schemas": [
         "urn:ietf:params:scim:api:messages:2.0:ListResponse"
@@ -226,7 +225,6 @@ app.put("/scim/v2/Users/:userId", function (req, res) {
         }
     ]
 };
-console.log(response);
 res.send(response);
 });
 
