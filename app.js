@@ -6,8 +6,13 @@ const app = express();
 
 app.use(express.json());
 
-app.post('/reg', (req, res) => {
+app.post('/v1-registration-inline-hook', (req, res) => {
+    req.on('data', function (data) {
+        requestBody += data;
+        var userJsonData = JSON.parse(requestBody);
+        console.log(userJsonData);
     
+      });
     let response = {
         "commands":[
            {
@@ -24,6 +29,7 @@ app.post('/reg', (req, res) => {
      }
     res.send(response);
 });
+
 
 app.get('/scim/v2/Users', (req, res) => {
     console.log('req.url=======================' + JSON.stringify(req.url));
