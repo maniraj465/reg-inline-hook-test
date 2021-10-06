@@ -13,7 +13,11 @@ app.post('/v1-registration-inline-hook', (req, res) => {
         console.log(userJsonData);
     
       });
-    let response = {
+      console.log(req.body);
+console.log('---------------------------------------------');
+      console.log(JSON.stringify(req.body));
+
+      let response = {
         "commands":[
            {
               "type":"com.okta.user.profile.update",
