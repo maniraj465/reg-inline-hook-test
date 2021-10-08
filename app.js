@@ -35,6 +35,35 @@ console.log('---------------------------------------------');
 });
 
 
+app.post('/v1-password-inline-hook', (req, res) => {
+    req.on('data', function (data) {
+        requestBody += data;
+        var userJsonData = JSON.parse(requestBody);
+        console.log(userJsonData);
+    
+      });
+      console.log(req.body);
+console.log('---------------------------------------------');
+      console.log(JSON.stringify(req.body));
+
+      let response = {
+        "commands":[
+           {
+              "type":"com.okta.user.profile.update",
+              "value":{
+                 "firstName": req.body.data.userProfile.firstName,
+                "lastName": req.body.data.userProfile.lastName,
+                "email": req.body.data.userProfile.email,
+                "countryCode": req.body.data.userProfile.countryCode,	    
+                "hpeProfileID": uuid()
+              }
+           },
+        ]
+     }
+    res.send(response);
+});
+
+
 app.get('/scim/v2/Users', (req, res) => {
     console.log('req.url=======================' + JSON.stringify(req.url));
     console.log('req.headers=======================' + JSON.stringify(req.headers));
