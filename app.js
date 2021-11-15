@@ -114,7 +114,7 @@ app.put('/ccs/update', (req, res) => {
 
 
 app.delete('/ccs/delete/:userId', (req, res) => {
-    console.log(`CCS delete endpoint triggered for ${userId}`);
+    console.log(`CCS delete endpoint triggered for ${+req.params.userId}`);
     console.log('req.url=======================' + JSON.stringify(req.url));
     console.log('req.headers=======================' + JSON.stringify(req.headers));
       let response = {
