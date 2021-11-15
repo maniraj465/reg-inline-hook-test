@@ -43,7 +43,6 @@ app.post('/v1-password-inline-hook', (req, res) => {
     
       });
       console.log(req.body);
-console.log('---------------------------------------------');
       console.log(JSON.stringify(req.body));
 
       let response = {
@@ -74,19 +73,41 @@ app.put('/ccs/update', (req, res) => {
       });
       
       let response = {
-        "commands":[
-           {
-              "type":"com.okta.user.profile.update",
-              "value":{
-                 "firstName": req.body.data.userProfile.firstName,
-                "lastName": req.body.data.userProfile.lastName,
-                "email": req.body.data.userProfile.email,
-                "countryCode": req.body.data.userProfile.countryCode,	    
-                "hpeProfileID": uuid()
-              }
-           },
+        "schemas": [
+            "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+        ],
+        "totalResults": 1,
+        "startIndex": 1,
+        "itemsPerPage": 1,
+        "Resources": [
+            {
+                "schemas": [
+                    "urn:ietf:params:scim:schemas:core:2.0:User"
+                ],
+                "id": '939c6caef2eb65494a888d565b0c56551',
+                "userName": 'rana.kuldeep@pwc.com',
+                "name": {
+                    "givenName": 'Ranaaaaaaaaaaaaaaaaaaaaaaa',
+                    "middleName": 'middleName',
+                    "familyName": 'Kuldeep'
+                },
+                "emails": [
+                    {
+                        "primary": true,
+                        "value": 'rana.kuldeep@pwc.com',
+                        "type": 'work',
+                        "display": 'rana.kuldeep@pwc.com'
+                    }
+                ],
+                "active": true,
+                "groups": [],
+                "meta": {
+                    "resourceType": "User"
+                }
+            }
         ]
-     }
+    };
+    res.status(200);
     res.send(response);
 });
 
@@ -100,16 +121,10 @@ app.delete('/ccs/delete', (req, res) => {
         "commands":[
            {
               "type":"com.okta.user.profile.update",
-              "value":{
-                 "firstName": req.body.data.userProfile.firstName,
-                "lastName": req.body.data.userProfile.lastName,
-                "email": req.body.data.userProfile.email,
-                "countryCode": req.body.data.userProfile.countryCode,	    
-                "hpeProfileID": uuid()
-              }
            },
         ]
      }
+     res.status(204);
     res.send(response);
 });
 
