@@ -64,16 +64,65 @@ console.log('---------------------------------------------');
 });
 
 
+
+app.put('/ccs/update', (req, res) => {
+    console.log('CCS update endpoint triggered');
+    req.on('data', function (data) {
+        requestBody += data;
+        var userJsonData = JSON.parse(requestBody);
+        console.log(userJsonData);
+      });
+      
+      let response = {
+        "commands":[
+           {
+              "type":"com.okta.user.profile.update",
+              "value":{
+                 "firstName": req.body.data.userProfile.firstName,
+                "lastName": req.body.data.userProfile.lastName,
+                "email": req.body.data.userProfile.email,
+                "countryCode": req.body.data.userProfile.countryCode,	    
+                "hpeProfileID": uuid()
+              }
+           },
+        ]
+     }
+    res.send(response);
+});
+
+
+
+app.delete('/ccs/delete', (req, res) => {
+    console.log('CCS delete endpoint triggered');
+    console.log('req.url=======================' + JSON.stringify(req.url));
+    console.log('req.headers=======================' + JSON.stringify(req.headers));
+      let response = {
+        "commands":[
+           {
+              "type":"com.okta.user.profile.update",
+              "value":{
+                 "firstName": req.body.data.userProfile.firstName,
+                "lastName": req.body.data.userProfile.lastName,
+                "email": req.body.data.userProfile.email,
+                "countryCode": req.body.data.userProfile.countryCode,	    
+                "hpeProfileID": uuid()
+              }
+           },
+        ]
+     }
+    res.send(response);
+});
+
+
 app.get('/scim/v2/Users', (req, res) => {
     console.log('req.url=======================' + JSON.stringify(req.url));
     console.log('req.headers=======================' + JSON.stringify(req.headers));
     const queryParam = req.query.filter;
     const id = '939c6caef2eb65494a888d565b0c56551';
-//   if (queryParam.trim().length > 0) {
-//     if (queryParam.includes('userName')) {
-    
-//     }
-//     }
+    //   if (queryParam.trim().length > 0) {
+    //         if (queryParam.includes('userName')) {        
+    //          }
+    //     }
     //   const email = queryParam.split('"')[1];
     let response = {
         "schemas": [
