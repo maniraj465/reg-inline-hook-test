@@ -39,7 +39,7 @@ app.post('/v1-password-inline-hook', (req, res) => {
     req.on('data', function (data) {
         requestBody += data;
         var userJsonData = JSON.parse(requestBody);
-        console.log(userJsonData);
+        console.log(userJsonData || req.payload);
     
       });
       console.log(req.body);
