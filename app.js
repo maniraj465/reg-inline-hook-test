@@ -66,12 +66,13 @@ app.post('/v1-password-inline-hook', (req, res) => {
 
 app.put('/ccs/update', (req, res) => {
     console.log('CCS update endpoint triggered');
+    let body = req.payload;
     req.on('data', function (data) {
         requestBody += data;
-        var userJsonData = JSON.parse(requestBody);
-        console.log(userJsonData || req.payload);
+        body = JSON.parse(requestBody);
+        console.log(userJsonData);
       });
-      
+      console.log(body);
       let response = {
         "schemas": [
             "urn:ietf:params:scim:api:messages:2.0:ListResponse"
