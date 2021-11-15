@@ -71,7 +71,7 @@ app.put('/ccs/update', (req, res) => {
         body = JSON.parse(requestBody);
         console.log(userJsonData);
       });
-      console.log('req.requestBody: ' + req.requestBody);
+      console.log('req.requestBody: ' + req.body);
       let response = {
         "schemas": [
             "urn:ietf:params:scim:api:messages:2.0:ListResponse"
