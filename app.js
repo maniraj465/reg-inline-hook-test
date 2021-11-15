@@ -125,7 +125,7 @@ app.delete('/ccs/delete/:userId', (req, res) => {
         ]
      }
      res.status(204);
-    res.send(response);
+    res.send();
 });
 
 
