@@ -139,61 +139,42 @@ app.get('/scim/v2/Users', (req, res) => {
     //          }
     //     }
     //   const email = queryParam.split('"')[1];
-    let response = {
-        "schemas": [
-            "urn:ietf:params:scim:api:messages:2.0:ListResponse"
-        ],
-        "totalResults": 1,
-        "startIndex": 1,
-        "itemsPerPage": 1,
-        "Resources": [
-            {
-                "schemas": [
-                    "urn:ietf:params:scim:schemas:core:2.0:User"
-                ],
-                "id": '939c6caef2eb65494a888d565b0c56551',
-                "userName": 'rana.kuldeep@pwc.com',
-                "name": {
-                    "givenName": 'RanaaaaaaaaaaaaaaaaaaaaaaaA',
-                    "middleName": 'middleName',
-                    "familyName": 'Kuldeep'
-                },
-                "emails": [
-                    {
-                        "primary": true,
-                        "value": 'rana.kuldeep@pwc.com',
-                        "type": 'work',
-                        "display": 'rana.kuldeep@pwc.com'
-                    }
-                ],
-                "active": true,
-                "groups": [],
-                "meta": {
-                    "resourceType": "User"
-                }
-            }
-        ]
-    };
-    //response.setHeader('Content-Type', 'text/json;charset=UTF-8');
-    // response.setHeader('charset', 'UTF-8');
-    
-    console.log(response);
-    res.status(200);
-    res.send(response);
-});
-
-app.get('/scim/v2/Users/:profileId', (req, res) => {
-
     // let response = {
     //     "schemas": [
     //         "urn:ietf:params:scim:api:messages:2.0:ListResponse"
     //     ],
-    //     "id": '939c6caef2eb65494a888d565b0c56551',
-    //     "totalResults": 0,
+    //     "totalResults": 1,
     //     "startIndex": 1,
-    //     "itemsPerPage": 0,
-    //     "Resources": []
+    //     "itemsPerPage": 1,
+    //     "Resources": [
+    //         {
+    //             "schemas": [
+    //                 "urn:ietf:params:scim:schemas:core:2.0:User"
+    //             ],
+    //             "id": '939c6caef2eb65494a888d565b0c56551',
+    //             "userName": 'rana.kuldeep@pwc.com',
+    //             "name": {
+    //                 "givenName": 'RanaaaaaaaaaaaaaaaaaaaaaaaA',
+    //                 "middleName": 'middleName',
+    //                 "familyName": 'Kuldeep'
+    //             },
+    //             "emails": [
+    //                 {
+    //                     "primary": true,
+    //                     "value": 'rana.kuldeep@pwc.com',
+    //                     "type": 'work',
+    //                     "display": 'rana.kuldeep@pwc.com'
+    //                 }
+    //             ],
+    //             "active": true,
+    //             "groups": [],
+    //             "meta": {
+    //                 "resourceType": "User"
+    //             }
+    //         }
+    //     ]
     // };
+    console.log('Query params: ' + queryParam);
     let response = {
         "schemas": [
             "urn:ietf:params:scim:api:messages:2.0:ListResponse"
@@ -201,8 +182,33 @@ app.get('/scim/v2/Users/:profileId', (req, res) => {
         "details": 'sending 404 for testing',
         "status": 404,
     };
+    
     console.log(response);
     res.status(404);
+    res.send(response);
+});
+
+app.get('/scim/v2/Users/:profileId', (req, res) => {
+
+    let response = {
+        "schemas": [
+            "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+        ],
+        "id": '939c6caef2eb65494a888d565b0c56551',
+        "totalResults": 0,
+        "startIndex": 1,
+        "itemsPerPage": 0,
+        "Resources": []
+    };
+    // let response = {
+    //     "schemas": [
+    //         "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+    //     ],
+    //     "details": 'sending 404 for testing',
+    //     "status": 404,
+    // };
+    console.log(response);
+    // res.status(404);
     res.send(response);
 });
 
