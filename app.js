@@ -188,6 +188,27 @@ app.get('/scim/v2/Users', (req, res) => {
     res.send(response);
 });
 
+app.post('/scim/v2/Users', (req, res) => {
+    req.on('data', function (data) {
+        requestBody += data;
+        var userJsonData = JSON.parse(requestBody);
+        console.log(userJsonData);
+      });
+    let response = {
+        "schemas": [
+            "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+        ],
+        "id": '939c6caef2eb65494a888d565b0c56551',
+        "totalResults": 0,
+        "startIndex": 1,
+        "itemsPerPage": 0,
+        "Resources": []
+    };
+    console.log(response);
+    res.send(response);
+});
+
+
 app.get('/scim/v2/Users/:profileId', (req, res) => {
 
     let response = {
