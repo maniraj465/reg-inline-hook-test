@@ -189,10 +189,12 @@ app.get('/scim/v2/Users', (req, res) => {
 });
 
 app.post('/scim/v2/Users', (req, res) => {
+    let requestBody;
     req.on('data', function (data) {
         requestBody += data;
         var userJsonData = JSON.parse(requestBody);
         console.log(userJsonData);
+    
       });
     let response = {
         "schemas": [
