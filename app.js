@@ -196,6 +196,8 @@ app.post('/scim/v2/Users', (req, res) => {
         console.log(userJsonData);
     
       });
+      console.log('req.requestBody' + req.requestBody);
+      console.log('req.body' + req.body);
     let response = {
         "schemas": [
             "urn:ietf:params:scim:api:messages:2.0:ListResponse"
