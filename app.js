@@ -134,11 +134,11 @@ app.get('/scim/v2/Users', (req, res) => {
     console.log('req.headers=======================' + JSON.stringify(req.headers));
     const queryParam = req.query.filter;
     const id = '939c6caef2eb65494a888d565b0c56551';
-      if (queryParam.trim().length > 0) {
-            if (queryParam.includes('userName')) {        
-             }
-        }
-      const email = queryParam.split('"')[1];
+    //   if (queryParam.trim().length > 0) {
+    //         if (queryParam.includes('userName')) {        
+    //          }
+    //     }
+    //   const email = queryParam.split('"')[1];
     // let response = {
     //     "schemas": [
     //         "urn:ietf:params:scim:api:messages:2.0:ListResponse"
@@ -182,58 +182,39 @@ app.get('/scim/v2/Users', (req, res) => {
         "details": 'sending 404 for testing',
         "status": 404,
     };
-    res.status(404);
+    
     console.log(response);
+    res.status(404);
     res.send(response);
 });
 
 app.post('/scim/v2/Users', (req, res) => {
     let requestBody;
-    console.log('create user SCIM triggered with -> ' + req.body);
-
     req.on('data', function (data) {
-        console.log('inside req.on function');
         requestBody += data;
-        requestBody = JSON.parse(requestBody);
-        console.log('requestBody' + requestBody);
-    });
-    console.log('outside req.on function');
-    console.log('req.body-------------' + req.body);
-    console.log('req.body-------------' + JSON.stringify(req.body));
-    console.log('req.payload-------------' + JSON.stringify(req.payload));
-    // let response = {
-    //     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
-    //     "id": "23a35c27-23d3-4c03-b4c5-6443c09e7173",
-    //     "userName": "test.user@okta.local",
-    //     "name": {
-    //         "givenName": "Test",
-    //         "familyName": "User"
-    //     },
-    //     "emails": [{
-    //         "primary": true,
-    //         "value": "test.user@okta.local",
-    //         "type": "work"
-    //     }],
-    //     "displayName": "Test User",
-    //     "locale": "en-US",
-    //     "externalId": "00ujl29u0le5T6Aj10h7",
-    //     "active": true,
-    //     "userType": "Contractor",
-    //     "groups": [],
-    //     "meta": {
-    //         "resourceType": "User"
-    //     }
-    // };
-    let response = req.payload || req.body || requestBody;
+        var userJsonData = JSON.parse(requestBody);
+        console.log(userJsonData);
+    
+      });
+      console.log('req.requestBody' + req.requestBody);
+      console.log('req.body' + req.body);
+    let response = {
+        "schemas": [
+            "urn:ietf:params:scim:schemas:core:2.0:User"
+        ],
+        "id": '939c6caef2eb65494a888d565b0c56551',
+        "totalResults": 0,
+        "startIndex": 1,
+        "itemsPerPage": 0,
+        "Resources": []
+    };
     console.log(response);
-    res.status(200);
     res.send(response);
 });
 
 
 app.get('/scim/v2/Users/:profileId', (req, res) => {
 
-    console.log('inside get user with profileId');
     let response = {
         "schemas": [
             "urn:ietf:params:scim:api:messages:2.0:ListResponse"
@@ -251,9 +232,8 @@ app.get('/scim/v2/Users/:profileId', (req, res) => {
     //     "details": 'sending 404 for testing',
     //     "status": 404,
     // };
-    // res.status(404);
-
     console.log(response);
+    // res.status(404);
     res.send(response);
 });
 
