@@ -183,8 +183,6 @@ app.get('/scim/v2/Users', (req, res) => {
         "status": 404,
     };
     res.status(404);
-
-    
     console.log(response);
     res.send(response);
 });
@@ -229,25 +227,25 @@ app.post('/scim/v2/Users', (req, res) => {
 
 app.get('/scim/v2/Users/:profileId', (req, res) => {
 
-    let response = {
-        "schemas": [
-            "urn:ietf:params:scim:api:messages:2.0:ListResponse"
-        ],
-        "id": '939c6caef2eb65494a888d565b0c56551',
-        "totalResults": 0,
-        "startIndex": 1,
-        "itemsPerPage": 0,
-        "Resources": []
-    };
     // let response = {
     //     "schemas": [
     //         "urn:ietf:params:scim:api:messages:2.0:ListResponse"
     //     ],
-    //     "details": 'sending 404 for testing',
-    //     "status": 404,
+    //     "id": '939c6caef2eb65494a888d565b0c56551',
+    //     "totalResults": 0,
+    //     "startIndex": 1,
+    //     "itemsPerPage": 0,
+    //     "Resources": []
     // };
+    let response = {
+        "schemas": [
+            "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+        ],
+        "details": 'sending 404 for testing',
+        "status": 404,
+    };
     console.log(response);
-    // res.status(404);
+    res.status(404);
     res.send(response);
 });
 
