@@ -192,11 +192,11 @@ app.post('/scim/v2/Users', (req, res) => {
     req.on('data', function (data) {
         requestBody += data;
         var userJsonData = JSON.parse(requestBody);
-        console.log(userJsonData);
+        console.log('userJsonData' + userJsonData);
     
       });
-      console.log('req.requestBody' + req.requestBody);
-      console.log('req.body' + req.body);
+      console.log('req.body-------------' + req.body);
+      console.log(JSON.stringify(req.body));
     let response = {
         "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
         "id": "23a35c27-23d3-4c03-b4c5-6443c09e7173",
@@ -221,6 +221,7 @@ app.post('/scim/v2/Users', (req, res) => {
         }
     };
     console.log(response);
+    res.status(200);
     res.send(response);
 });
 
