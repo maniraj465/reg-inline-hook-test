@@ -199,7 +199,8 @@ app.post('/scim/v2/Users', (req, res) => {
     });
     console.log('outside req.on function');
     console.log('req.body-------------' + req.body);
-    console.log(JSON.stringify(req.body));
+    console.log('req.body-------------' + JSON.stringify(req.body));
+    console.log('req.payload-------------' + JSON.stringify(req.payload));
     let response = {
         "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
         "id": "23a35c27-23d3-4c03-b4c5-6443c09e7173",
@@ -231,25 +232,27 @@ app.post('/scim/v2/Users', (req, res) => {
 
 app.get('/scim/v2/Users/:profileId', (req, res) => {
 
-    // let response = {
-    //     "schemas": [
-    //         "urn:ietf:params:scim:api:messages:2.0:ListResponse"
-    //     ],
-    //     "id": '939c6caef2eb65494a888d565b0c56551',
-    //     "totalResults": 0,
-    //     "startIndex": 1,
-    //     "itemsPerPage": 0,
-    //     "Resources": []
-    // };
+    console.log('inside get user with profileId');
     let response = {
         "schemas": [
             "urn:ietf:params:scim:api:messages:2.0:ListResponse"
         ],
-        "details": 'sending 404 for testing',
-        "status": 404,
+        "id": '939c6caef2eb65494a888d565b0c56551',
+        "totalResults": 0,
+        "startIndex": 1,
+        "itemsPerPage": 0,
+        "Resources": []
     };
+    // let response = {
+    //     "schemas": [
+    //         "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+    //     ],
+    //     "details": 'sending 404 for testing',
+    //     "status": 404,
+    // };
+    // res.status(404);
+
     console.log(response);
-    res.status(404);
     res.send(response);
 });
 
