@@ -189,14 +189,17 @@ app.get('/scim/v2/Users', (req, res) => {
 
 app.post('/scim/v2/Users', (req, res) => {
     let requestBody;
+    console.log('create user SCIM triggered with -> ' + req.body);
+
     req.on('data', function (data) {
+        console.log('inside req.on function');
         requestBody += data;
         var userJsonData = JSON.parse(requestBody);
         console.log('userJsonData' + userJsonData);
-    
-      });
-      console.log('req.body-------------' + req.body);
-      console.log(JSON.stringify(req.body));
+    });
+    console.log('outside req.on function');
+    console.log('req.body-------------' + req.body);
+    console.log(JSON.stringify(req.body));
     let response = {
         "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
         "id": "23a35c27-23d3-4c03-b4c5-6443c09e7173",
