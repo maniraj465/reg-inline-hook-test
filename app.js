@@ -194,36 +194,37 @@ app.post('/scim/v2/Users', (req, res) => {
     req.on('data', function (data) {
         console.log('inside req.on function');
         requestBody += data;
-        var userJsonData = JSON.parse(requestBody);
-        console.log('userJsonData' + userJsonData);
+        requestBody = JSON.parse(requestBody);
+        console.log('requestBody' + requestBody);
     });
     console.log('outside req.on function');
     console.log('req.body-------------' + req.body);
     console.log('req.body-------------' + JSON.stringify(req.body));
     console.log('req.payload-------------' + JSON.stringify(req.payload));
-    let response = {
-        "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
-        "id": "23a35c27-23d3-4c03-b4c5-6443c09e7173",
-        "userName": "test.user@okta.local",
-        "name": {
-            "givenName": "Test",
-            "familyName": "User"
-        },
-        "emails": [{
-            "primary": true,
-            "value": "test.user@okta.local",
-            "type": "work"
-        }],
-        "displayName": "Test User",
-        "locale": "en-US",
-        "externalId": "00ujl29u0le5T6Aj10h7",
-        "active": true,
-        "userType": "Contractor",
-        "groups": [],
-        "meta": {
-            "resourceType": "User"
-        }
-    };
+    // let response = {
+    //     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
+    //     "id": "23a35c27-23d3-4c03-b4c5-6443c09e7173",
+    //     "userName": "test.user@okta.local",
+    //     "name": {
+    //         "givenName": "Test",
+    //         "familyName": "User"
+    //     },
+    //     "emails": [{
+    //         "primary": true,
+    //         "value": "test.user@okta.local",
+    //         "type": "work"
+    //     }],
+    //     "displayName": "Test User",
+    //     "locale": "en-US",
+    //     "externalId": "00ujl29u0le5T6Aj10h7",
+    //     "active": true,
+    //     "userType": "Contractor",
+    //     "groups": [],
+    //     "meta": {
+    //         "resourceType": "User"
+    //     }
+    // };
+    let response = req.payload || req.body || requestBody;
     console.log(response);
     res.status(200);
     res.send(response);
