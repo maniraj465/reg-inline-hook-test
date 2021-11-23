@@ -130,6 +130,7 @@ app.delete('/ccs/delete/:userId', (req, res) => {
 
 
 app.get('/scim/v2/Users', (req, res) => {
+    console.log('inside getuser by username');
     console.log('req.url=======================' + JSON.stringify(req.url));
     console.log('req.headers=======================' + JSON.stringify(req.headers));
     const queryParam = req.query.filter;
@@ -189,6 +190,7 @@ app.get('/scim/v2/Users', (req, res) => {
 });
 
 app.post('/scim/v2/Users', (req, res) => {
+    console.log('inside create user SCIM');
     let requestBody;
     req.on('data', function (data) {
         requestBody += data;
@@ -198,6 +200,7 @@ app.post('/scim/v2/Users', (req, res) => {
       });
       console.log('req.requestBody' + req.requestBody);
       console.log('req.body' + req.body);
+      console.log('requestBody ' + requestBody);
     let response = {
         "schemas": [
             "urn:ietf:params:scim:schemas:core:2.0:User"
@@ -214,7 +217,7 @@ app.post('/scim/v2/Users', (req, res) => {
 
 
 app.get('/scim/v2/Users/:profileId', (req, res) => {
-
+    console.log('inside getuser by profileId');
     let response = {
         "schemas": [
             "urn:ietf:params:scim:api:messages:2.0:ListResponse"
@@ -237,21 +240,6 @@ app.get('/scim/v2/Users/:profileId', (req, res) => {
     res.send(response);
 });
 
-
-app.get('/scim/v2/Users/404', (req, res) => {
-
-    let response = {
-        "schemas": [
-            "urn:ietf:params:scim:api:messages:2.0:ListResponse"
-        ],
-        "details": 'sending 404 for testing',
-        "status": 404,
-
-    };
-    console.log(response);
-    res.status(404);
-    res.send(response);
-});
 
 app.patch('/scim/v2/Users/:profileId', (req, res) => {
     console.log('req.url=======================' + JSON.stringify(req.url));
