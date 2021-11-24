@@ -194,10 +194,10 @@ app.post('/scim/v2/Users/Users', (req, res) => {
     console.log('inside create user SCIM');
     req.on('data', function (data) {
         requestBody += data;
-        // console.log('requestBody ' + requestBody);
-    
+        
       });
-      console.log('req.body' + JSON.stringify(req.body));
+      console.log('requestBody');
+      console.log(requestBody);
     
     let response = {
         "schemas": [
@@ -240,22 +240,22 @@ app.post('/scim/v2/Users/Users', (req, res) => {
         "preferredLanguage": "en",
         "locale": "en-US",
         "hpePersonalStreetAddress": "RingRoad5",
-            "hpePersonalStreetAddress2": "BTM Layout",
-            "hpePersonalCity": "bangalore",
-            "hpePersonalState": "Delhi",
-            "hpePersonalZipCode": "700100",
-            "hpeCountryCode": "IN",
+        "hpePersonalStreetAddress2": "BTM Layout",
+        "hpePersonalCity": "bangalore",
+        "hpePersonalState": "Delhi",
+        "hpePersonalZipCode": "700100",
+        "hpeCountryCode": "IN",
         "hpeStreetAddress2": "Terrace update",
         "hpeContactPreferencePhone": "false",
-            "hpeContactPreferenceEmail": "true",
-            "hpeData1": "1003445632gh1",
-            "hpeData2": "alklkatty000111",
-            "hpeData3": "jlitrbwq",
+        "hpeContactPreferenceEmail": "true",
+        "hpeData1": "1003445632gh1",
+        "hpeData2": "alklkatty000111",
+        "hpeData3": "jlitrbwq",
         "hpeCompanyName": "Intel Inc. Pvt",
         "id": "1d55c043c07d46ecf9c66984e1ae33c9",
         "hpeProfileID": "1d55c043c07d46ecf9c66984e1ae33c9"
     };
-    console.log('response ' + response);
+    console.log(response);
     res.send(response);
 });
 
