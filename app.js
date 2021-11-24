@@ -197,6 +197,7 @@ app.post('/scim/v2/Users', (req, res) => {
         console.log(requestBody);
     
       });
+      console.log('req.body' + req.body);
       console.log(requestBody);
     //   console.log('req.requestBody' + req.requestBody);
     //   console.log('req.body' + req.body);
