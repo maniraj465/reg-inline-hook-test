@@ -197,7 +197,7 @@ app.post('/scim/v2/Users/Users', (req, res) => {
         // console.log('requestBody ' + requestBody);
     
       });
-      console.log('req.body' + req.body);
+      console.log('req.body' + JSON.stringify(req.body));
     
     let response = {
         "schemas": [
@@ -239,28 +239,23 @@ app.post('/scim/v2/Users/Users', (req, res) => {
         ],
         "preferredLanguage": "en",
         "locale": "en-US",
-        "Home_Address": {
-            "hpePersonalStreetAddress": "RingRoad5",
+        "hpePersonalStreetAddress": "RingRoad5",
             "hpePersonalStreetAddress2": "BTM Layout",
             "hpePersonalCity": "bangalore",
             "hpePersonalState": "Delhi",
             "hpePersonalZipCode": "700100",
-            "hpeCountryCode": "IN"
-        },
+            "hpeCountryCode": "IN",
         "hpeStreetAddress2": "Terrace update",
-        "Preference": {
-            "hpeContactPreferencePhone": "false",
-            "hpeContactPreferenceEmail": "true"
-        },
-        "Data": {
+        "hpeContactPreferencePhone": "false",
+            "hpeContactPreferenceEmail": "true",
             "hpeData1": "1003445632gh1",
             "hpeData2": "alklkatty000111",
-            "hpeData3": "jlitrbwq"
-        },
+            "hpeData3": "jlitrbwq",
         "hpeCompanyName": "Intel Inc. Pvt",
         "id": "1d55c043c07d46ecf9c66984e1ae33c9",
+        "hpeProfileID": "1d55c043c07d46ecf9c66984e1ae33c9"
     };
-    console.log(response);
+    console.log('response ' + response);
     res.send(response);
 });
 
