@@ -178,7 +178,7 @@ app.get('/scim/v2/Users', (req, res) => {
     console.log('Query params: ' + queryParam);
     let response = {
         "schemas": [
-            "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+            "urn:ietf:params:scim:schemas:core:2.0:User"
         ],
         "details": 'sending 404 for testing',
         "status": 404,
