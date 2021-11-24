@@ -138,10 +138,11 @@ app.get('/scim/v2/Users', (req, res) => {
     //   if (queryParam.trim().length > 0) {
     //         if (queryParam.includes('userName')) {        
     //          }
-    //     }
+    //     }    
+    //   const email = queryParam.split('"')[1];
+
 
     
-      const email = queryParam.split('"')[1];
     let response = {
         "schemas": [
             "urn:ietf:params:scim:api:messages:2.0:ListResponse"
