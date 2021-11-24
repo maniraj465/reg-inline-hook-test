@@ -135,57 +135,57 @@ app.get('/scim/v2/Users', (req, res) => {
     console.log('req.headers=======================' + JSON.stringify(req.headers));
     const queryParam = req.query.filter;
     const id = '939c6caef2eb65494a888d565b0c56551';
-    //   if (queryParam.trim().length > 0) {
-    //         if (queryParam.includes('userName')) {        
-    //          }
-    //     }
-    //   const email = queryParam.split('"')[1];
-    // let response = {
-    //     "schemas": [
-    //         "urn:ietf:params:scim:api:messages:2.0:ListResponse"
-    //     ],
-    //     "totalResults": 1,
-    //     "startIndex": 1,
-    //     "itemsPerPage": 1,
-    //     "Resources": [
-    //         {
-    //             "schemas": [
-    //                 "urn:ietf:params:scim:schemas:core:2.0:User"
-    //             ],
-    //             "id": '939c6caef2eb65494a888d565b0c56551',
-    //             "userName": 'rana.kuldeep@pwc.com',
-    //             "name": {
-    //                 "givenName": 'RanaaaaaaaaaaaaaaaaaaaaaaaA',
-    //                 "middleName": 'middleName',
-    //                 "familyName": 'Kuldeep'
-    //             },
-    //             "emails": [
-    //                 {
-    //                     "primary": true,
-    //                     "value": 'rana.kuldeep@pwc.com',
-    //                     "type": 'work',
-    //                     "display": 'rana.kuldeep@pwc.com'
-    //                 }
-    //             ],
-    //             "active": true,
-    //             "groups": [],
-    //             "meta": {
-    //                 "resourceType": "User"
-    //             }
-    //         }
-    //     ]
-    // };
-    console.log('Query params: ' + queryParam);
+      if (queryParam.trim().length > 0) {
+            if (queryParam.includes('userName')) {        
+             }
+        }
+      const email = queryParam.split('"')[1];
     let response = {
         "schemas": [
-            "urn:ietf:params:scim:schemas:core:2.0:User"
+            "urn:ietf:params:scim:api:messages:2.0:ListResponse"
         ],
-        "details": 'sending 404 for testing',
-        "status": 404,
+        "totalResults": 1,
+        "startIndex": 1,
+        "itemsPerPage": 1,
+        "Resources": [
+            {
+                "schemas": [
+                    "urn:ietf:params:scim:schemas:core:2.0:User"
+                ],
+                "id": '939c6caef2eb65494a888d565b0c56551',
+                "userName": 'rana.kuldeep@pwc.com',
+                "name": {
+                    "givenName": 'RanaaaaaaaaaaaaaaaaaaaaaaaA',
+                    "middleName": 'middleName',
+                    "familyName": 'Kuldeep'
+                },
+                "emails": [
+                    {
+                        "primary": true,
+                        "value": 'rana.kuldeep@pwc.com',
+                        "type": 'work',
+                        "display": 'rana.kuldeep@pwc.com'
+                    }
+                ],
+                "active": true,
+                "groups": [],
+                "meta": {
+                    "resourceType": "User"
+                }
+            }
+        ]
     };
-    
+    // console.log('Query params: ' + queryParam);
+    // let response = {
+    //     "schemas": [
+    //         "urn:ietf:params:scim:schemas:core:2.0:User"
+    //     ],
+    //     "details": 'sending 404 for testing',
+    //     "status": 404,
+    // };
+    // res.status(404);
+
     console.log(response);
-    res.status(404);
     res.send(response);
 });
 
@@ -195,9 +195,8 @@ app.post('/scim/v2/Users/Users', (req, res) => {
         requestBody += data;
     });
     console.log('inside create user SCIM');
-    console.log(requestBody);
-    console.log(JSON.stringify(requestBody));
-    console.log('Hardcoded response');
+  
+      console.log('Hardcoded response');
     let response1 = {
                 "schemas": [
                     "urn:ietf:params:scim:api:messages:2.0:ListResponse"
