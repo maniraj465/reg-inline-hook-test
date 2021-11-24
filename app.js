@@ -192,14 +192,10 @@ app.get('/scim/v2/Users', (req, res) => {
 app.post('/scim/v2/Users/Users', (req, res) => {
     let requestBody;
     console.log('inside create user SCIM');
-    req.on('data', function (data) {
-        requestBody += data;
-        
     
-      });
-      console.log(requestBody);
+      console.log(req.body);
       console.log('Hardcoded response');
-    let response = {
+    let response1 = {
                 "schemas": [
                     "urn:ietf:params:scim:api:messages:2.0:ListResponse"
                 ],
@@ -271,59 +267,64 @@ app.post('/scim/v2/Users/Users', (req, res) => {
                     }
                 ]
             };
-    // let response = {
-    //     "schemas": [
-    //         "urn:ietf:params:scim:schemas:core:2.0:User"],
-    //     "totalResults": 0,
-    //     "startIndex": 1,
-    //     "itemsPerPage": 0,
-    //     "userName": "todaytest26@gmail.com",
-    //     "name": {
-    //         "givenName": "abc123",
-    //         "middleName":"abc123",
-    //         "familyName": "user"
-    //     },
-    //     "emails": [
-    //         {
-    //             "primary": true,
-    //             "value": "todaytest26@gmail.com"
-    //         }
-    //     ],
-    //     "phoneNumbers": [
-    //         {
-    //             "primary": true,
-    //             "value": "7888226666"
-    //         }
-    //     ],
-    //     "addresses": [
-    //         {
-    //             "primary": true,
-    //             "streetAddress": "Care road",
-    //             "locality": "fremont",
-    //             "region": "TA",
-    //             "postalCode": "94534"
-    //         }
-    //     ],
-    //     "preferredLanguage": "en",
-    //     "locale": "en-US",
-    //     "hpePersonalStreetAddress": "RingRoad5",
-    //     "hpePersonalStreetAddress2": "BTM Layout",
-    //     "hpePersonalCity": "bangalore",
-    //     "hpePersonalState": "Delhi",
-    //     "hpePersonalZipCode": "700100",
-    //     "hpeCountryCode": "IN",
-    //     "hpeStreetAddress2": "Terrace update",
-    //     "hpeContactPreferencePhone": "false",
-    //     "hpeContactPreferenceEmail": "true",
-    //     "hpeData1": "1003445632gh1",
-    //     "hpeData2": "alklkatty000111",
-    //     "hpeData3": "jlitrbwq",
-    //     "hpeCompanyName": "Intel Inc. Pvt",
-    //     "id": "1d55c043c07d46ecf9c66984e1ae33c9",
-    //     "hpeProfileID": "1d55c043c07d46ecf9c66984e1ae33c9"
-    // };
-    console.log(response);
-    res.send(response);
+    let response2 = {
+        "schemas": [
+            "urn:ietf:params:scim:schemas:core:2.0:User",
+            "Home_Address",
+            "hpeProfileID",
+            "Preference",
+            "Data"
+        ],
+        "totalResults": 0,
+        "startIndex": 1,
+        "itemsPerPage": 0,
+        "userName": "todaytest26@gmail.com",
+        "name": {
+            "givenName": "abc123",
+            "middleName":"abc123",
+            "familyName": "user"
+        },
+        "emails": [
+            {
+                "primary": true,
+                "value": "todaytest26@gmail.com"
+            }
+        ],
+        "phoneNumbers": [
+            {
+                "primary": true,
+                "value": "7888226666"
+            }
+        ],
+        "addresses": [
+            {
+                "primary": true,
+                "streetAddress": "Care road",
+                "locality": "fremont",
+                "region": "TA",
+                "postalCode": "94534"
+            }
+        ],
+        "preferredLanguage": "en",
+        "locale": "en-US",
+        "hpePersonalStreetAddress": "RingRoad5",
+        "hpePersonalStreetAddress2": "BTM Layout",
+        "hpePersonalCity": "bangalore",
+        "hpePersonalState": "Delhi",
+        "hpePersonalZipCode": "700100",
+        "hpeCountryCode": "IN",
+        "hpeStreetAddress2": "Terrace update",
+        "hpeContactPreferencePhone": "false",
+        "hpeContactPreferenceEmail": "true",
+        "hpeData1": "1003445632gh1",
+        "hpeData2": "alklkatty000111",
+        "hpeData3": "jlitrbwq",
+        "hpeCompanyName": "Intel Inc. Pvt",
+        "id": "1d55c043c07d46ecf9c66984e1ae33c9",
+        "hpeProfileID": "1d55c043c07d46ecf9c66984e1ae33c9"
+    };
+    console.log(response2);
+    res.send(response2);
 });
 
 
