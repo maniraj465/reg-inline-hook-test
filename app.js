@@ -191,9 +191,15 @@ app.get('/scim/v2/Users', (req, res) => {
 
 app.post('/scim/v2/Users', (req, res) => {
     let requestBody;
+
     req.on('data', function (data) {
         requestBody += data;
-    });
+        console.log(requestBody);
+      });
+      console.log(req.body);
+      console.log(JSON.stringify(req.body));
+      console.log(JSON.stringify(requestBody));
+
     console.log('inside create user SCIM');
     console.log(requestBody);
       console.log('Hardcoded response');
