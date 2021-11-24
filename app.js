@@ -193,10 +193,11 @@ app.post('/scim/v2/Users/Users', (req, res) => {
     let requestBody;
     req.on('data', function (data) {
         requestBody += data;
-      });
+    });
     console.log('inside create user SCIM');
-  
-      console.log('Hardcoded response');
+    console.log(requestBody);
+    console.log(JSON.stringify(requestBody));
+    console.log('Hardcoded response');
     let response1 = {
                 "schemas": [
                     "urn:ietf:params:scim:api:messages:2.0:ListResponse"
