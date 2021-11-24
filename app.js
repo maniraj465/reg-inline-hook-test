@@ -46,19 +46,67 @@ app.post('/v1-password-inline-hook', (req, res) => {
       console.log(JSON.stringify(req.body));
 
       let response = {
-        "commands":[
-           {
-              "type":"com.okta.user.profile.update",
-              "value":{
-                 "firstName": req.body.data.userProfile.firstName,
-                "lastName": req.body.data.userProfile.lastName,
-                "email": req.body.data.userProfile.email,
-                "countryCode": req.body.data.userProfile.countryCode,	    
-                "hpeProfileID": uuid()
-              }
-           },
-        ]
-     }
+        "schemas": [
+            "urn:ietf:params:scim:schemas:core:2.0:User",
+            "Home_Address",
+            "hpeProfileID",
+            "Preference",
+            "Data"
+        ],
+        "totalResults": 0,
+        "startIndex": 1,
+        "itemsPerPage": 0,
+        "userName": "todaytest22@gmail.com",
+        "name": {
+            "givenName": "Weather",
+            "familyName": "Hazard"
+        },
+        "emails": [
+            {
+                "primary": true,
+                "value": "todaytest22@gmail.com"
+            }
+        ],
+        "phoneNumbers": [
+            {
+                "primary": true,
+                "value": "7888226666"
+            }
+        ],
+        "addresses": [
+            {
+                "primary": true,
+                "streetAddress": "Care road",
+                "locality": "fremont",
+                "region": "TA",
+                "postalCode": "94534"
+            }
+        ],
+        "preferredLanguage": "en",
+        "locale": "en-US",
+        "Home_Address": {
+            "hpePersonalStreetAddress": "RingRoad5",
+            "hpePersonalStreetAddress2": "BTM Layout",
+            "hpePersonalCity": "bangalore",
+            "hpePersonalState": "Delhi",
+            "hpePersonalZipCode": "700100",
+            "hpeCountryCode": "IN"
+        },
+        "hpeStreetAddress2": "Terrace update",
+        "Preference": {
+            "hpeContactPreferencePhone": "false",
+            "hpeContactPreferenceEmail": "true"
+        },
+        "Data": {
+            "hpeData1": "1003445632gh1",
+            "hpeData2": "alklkatty000111",
+            "hpeData3": "jlitrbwq"
+        },
+        "hpeCompanyName": "Intel Inc. Pvt",
+        "id": "1d55c043c07d46ecf9c66984e1ae33c9",
+        "statusCode": 200
+    };
+    console.log(response);
     res.send(response);
 });
 
