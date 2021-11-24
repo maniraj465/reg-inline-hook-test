@@ -200,13 +200,7 @@ app.post('/scim/v2/Users/Users', (req, res) => {
       console.log(requestBody);
     
     let response = {
-        "schemas": [
-            "urn:ietf:params:scim:schemas:core:2.0:User",
-            "Home_Address",
-            "hpeProfileID",
-            "Preference",
-            "Data"
-        ],
+        "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
         "totalResults": 0,
         "startIndex": 1,
         "itemsPerPage": 0,
