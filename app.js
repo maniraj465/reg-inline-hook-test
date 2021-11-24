@@ -194,10 +194,10 @@ app.post('/scim/v2/Users/Users', (req, res) => {
     req.on('data', function (data) {
         requestBody += data;
         console.log(JSON.parse(requestBody));
-    });
+      });
     console.log('inside create user SCIM');
   
-    console.log('Hardcoded response');
+      console.log('Hardcoded response');
     let response1 = {
                 "schemas": [
                     "urn:ietf:params:scim:api:messages:2.0:ListResponse"
@@ -329,6 +329,7 @@ app.post('/scim/v2/Users/Users', (req, res) => {
     let response = {
         "schemas": [
             "urn:ietf:params:scim:schemas:core:2.0:User",
+            "Home_Address",
             "hpeProfileID",
             "Preference",
             "Data"
@@ -365,6 +366,14 @@ app.post('/scim/v2/Users/Users', (req, res) => {
         ],
         "preferredLanguage": "en",
         "locale": "en-US",
+        "Home_Address": {
+            "hpePersonalStreetAddress": "RingRoad5",
+            "hpePersonalStreetAddress2": "BTM Layout",
+            "hpePersonalCity": "bangalore",
+            "hpePersonalState": "Delhi",
+            "hpePersonalZipCode": "700100",
+            "hpeCountryCode": "IN"
+        },
         "hpeStreetAddress2": "Terrace update",
         "Preference": {
             "hpeContactPreferencePhone": "false",
