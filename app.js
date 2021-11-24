@@ -190,6 +190,7 @@ app.get('/scim/v2/Users', (req, res) => {
 });
 
 app.post('/scim/v2/Users/Users', (req, res) => {
+    let requestBody;
     console.log('inside create user SCIM');
     req.on('data', function (data) {
         requestBody += data;
