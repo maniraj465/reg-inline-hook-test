@@ -326,7 +326,7 @@ app.post('/scim/v2/Users/Users', (req, res) => {
         "id": "1d55c043c07d46ecf9c66984e1ae33c9",
         "hpeProfileID": "1d55c043c07d46ecf9c66984e1ae33c9"
     };
-    let response = {
+    let response3 = {
         "schemas": [
             "urn:ietf:params:scim:schemas:core:2.0:User",
             "Home_Address",
@@ -387,6 +387,29 @@ app.post('/scim/v2/Users/Users', (req, res) => {
         "hpeCompanyName": "Intel Inc. Pvt",
         "id": "1d55c043c07d46ecf9c66984e1ae33c9"
     };
+    let response = {
+        "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
+        "id": "00ujl29u0le5T6Aj10h7rfsdffdf",
+        "userName": "todaytest27@gmail.com",
+        "name": {
+            "givenName": "Test",
+            "familyName": "User"
+        },
+        "emails": [{
+            "primary": true,
+            "value": "todaytest27@gmail.com",
+            "type": "work"
+        }],
+        "displayName": "Test User",
+        "locale": "en-US",
+        "externalId": "00ujl29u0le5T6Aj10h7rfsdf",
+        "active": true,
+        "userType": "Contractor",
+        "groups": [],
+        "meta": {
+            "resourceType": "User"
+        }
+    }
     console.log(response);
     res.send(response);
 });
