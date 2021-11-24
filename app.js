@@ -189,7 +189,7 @@ app.get('/scim/v2/Users', (req, res) => {
     res.send(response);
 });
 
-app.post('/scim/v2/Users/Users', (req, res) => {
+app.post('/scim/v2/Users', (req, res) => {
     let requestBody;
     req.on('data', function (data) {
         requestBody += data;
