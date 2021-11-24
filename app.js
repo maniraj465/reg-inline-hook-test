@@ -194,22 +194,22 @@ app.post('/scim/v2/Users/Users', (req, res) => {
     console.log('inside create user SCIM');
     req.on('data', function (data) {
         requestBody += data;
-        console.log(requestBody);
+        console.log('requestBody ' + requestBody);
     
       });
       console.log('req.body' + req.body);
       console.log('req.requestBody' + req.requestBody);
       console.log('req.body' + req.body);
       console.log('requestBody ' + requestBody);
-      const givenName = req.body.name.givenName;
-    const middleName = req.body.name.middleName;
-    const familyName = req.body.name.familyName;
-    const emailPrimary = req.body.emails[0].primary;
-    const emailValue = req.body.emails[0].value;
-    const emailType = req.body.emails[0].type;
-    const emailDisplay = req.body.emails[0].display;
-    const userName = req.body.userName;
-    const id = req.body.id;
+      const givenName = requestBody.name.givenName;
+    const middleName = requestBody.name.middleName;
+    const familyName = requestBody.name.familyName;
+    const emailPrimary = requestBody.emails[0].primary;
+    const emailValue = requestBody.emails[0].value;
+    const emailType = requestBody.emails[0].type;
+    const emailDisplay = requestBody.emails[0].display;
+    const userName = requestBody.userName;
+    const id = requestBody.id;
     let response ={
         "schemas": [
             "urn:ietf:params:scim:api:messages:2.0:ListResponse"
