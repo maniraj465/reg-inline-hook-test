@@ -192,18 +192,21 @@ app.get('/scim/v2/Users', (req, res) => {
 app.post('/scim/v2/Users/Users', (req, res) => {
     let requestBody;
     console.log('inside create user SCIM');
-    req.on('data', chunk => {
-        console.log('A chunk of data has arrived: ', chunk);
-        requestBody = chunk;
+    req.on('data', function (data) {
+        requestBody += data;
+        console.log(requestBody);
+    
       });
-      req.on('end', () => {
-        console.log('No more data');
-      })
-      console.log(requestBody);
-      
+
+      console.log('Hardcoded response');
     let response = {
         "schemas": [
-            "urn:ietf:params:scim:schemas:core:2.0:User"],
+            "urn:ietf:params:scim:schemas:core:2.0:User",
+            "Home_Address",
+            "hpeProfileID",
+            "Preference",
+            "Data"
+        ],
         "totalResults": 0,
         "startIndex": 1,
         "itemsPerPage": 0,
@@ -236,22 +239,80 @@ app.post('/scim/v2/Users/Users', (req, res) => {
         ],
         "preferredLanguage": "en",
         "locale": "en-US",
-        "hpePersonalStreetAddress": "RingRoad5",
-        "hpePersonalStreetAddress2": "BTM Layout",
-        "hpePersonalCity": "bangalore",
-        "hpePersonalState": "Delhi",
-        "hpePersonalZipCode": "700100",
-        "hpeCountryCode": "IN",
+        "Home_Address": {
+            "hpePersonalStreetAddress": "RingRoad5",
+            "hpePersonalStreetAddress2": "BTM Layout",
+            "hpePersonalCity": "bangalore",
+            "hpePersonalState": "Delhi",
+            "hpePersonalZipCode": "700100",
+            "hpeCountryCode": "IN"
+        },
         "hpeStreetAddress2": "Terrace update",
-        "hpeContactPreferencePhone": "false",
-        "hpeContactPreferenceEmail": "true",
-        "hpeData1": "1003445632gh1",
-        "hpeData2": "alklkatty000111",
-        "hpeData3": "jlitrbwq",
+        "Preference": {
+            "hpeContactPreferencePhone": "false",
+            "hpeContactPreferenceEmail": "true"
+        },
+        "Data": {
+            "hpeData1": "1003445632gh1",
+            "hpeData2": "alklkatty000111",
+            "hpeData3": "jlitrbwq"
+        },
         "hpeCompanyName": "Intel Inc. Pvt",
         "id": "1d55c043c07d46ecf9c66984e1ae33c9",
-        "hpeProfileID": "1d55c043c07d46ecf9c66984e1ae33c9"
+        "statusCode": 200
     };
+
+    // let response = {
+    //     "schemas": [
+    //         "urn:ietf:params:scim:schemas:core:2.0:User"],
+    //     "totalResults": 0,
+    //     "startIndex": 1,
+    //     "itemsPerPage": 0,
+    //     "userName": "todaytest26@gmail.com",
+    //     "name": {
+    //         "givenName": "abc123",
+    //         "middleName":"abc123",
+    //         "familyName": "user"
+    //     },
+    //     "emails": [
+    //         {
+    //             "primary": true,
+    //             "value": "todaytest26@gmail.com"
+    //         }
+    //     ],
+    //     "phoneNumbers": [
+    //         {
+    //             "primary": true,
+    //             "value": "7888226666"
+    //         }
+    //     ],
+    //     "addresses": [
+    //         {
+    //             "primary": true,
+    //             "streetAddress": "Care road",
+    //             "locality": "fremont",
+    //             "region": "TA",
+    //             "postalCode": "94534"
+    //         }
+    //     ],
+    //     "preferredLanguage": "en",
+    //     "locale": "en-US",
+    //     "hpePersonalStreetAddress": "RingRoad5",
+    //     "hpePersonalStreetAddress2": "BTM Layout",
+    //     "hpePersonalCity": "bangalore",
+    //     "hpePersonalState": "Delhi",
+    //     "hpePersonalZipCode": "700100",
+    //     "hpeCountryCode": "IN",
+    //     "hpeStreetAddress2": "Terrace update",
+    //     "hpeContactPreferencePhone": "false",
+    //     "hpeContactPreferenceEmail": "true",
+    //     "hpeData1": "1003445632gh1",
+    //     "hpeData2": "alklkatty000111",
+    //     "hpeData3": "jlitrbwq",
+    //     "hpeCompanyName": "Intel Inc. Pvt",
+    //     "id": "1d55c043c07d46ecf9c66984e1ae33c9",
+    //     "hpeProfileID": "1d55c043c07d46ecf9c66984e1ae33c9"
+    // };
     console.log(response);
     res.send(response);
 });
