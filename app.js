@@ -140,50 +140,50 @@ app.get('/scim/v2/Users', (req, res) => {
     //          }
     //     }
     //   const email = queryParam.split('"')[1];
-    let response = {
-        "schemas": [
-            "urn:ietf:params:scim:api:messages:2.0:ListResponse"
-        ],
-        "totalResults": 1,
-        "startIndex": 1,
-        "itemsPerPage": 1,
-        "Resources": [
-            {
-                "schemas": [
-                    "urn:ietf:params:scim:schemas:core:2.0:User"
-                ],
-                "id": '939c6caef2eb65494a888d565b0c56551',
-                "userName": 'rana.kuldeep@pwc.com',
-                "name": {
-                    "givenName": 'RanaaaaaaaaaaaaaaaaaaaaaaaA',
-                    "middleName": 'middleName',
-                    "familyName": 'Kuldeep'
-                },
-                "emails": [
-                    {
-                        "primary": true,
-                        "value": 'rana.kuldeep@pwc.com',
-                        "type": 'work',
-                        "display": 'rana.kuldeep@pwc.com'
-                    }
-                ],
-                "active": true,
-                "groups": [],
-                "meta": {
-                    "resourceType": "User"
-                }
-            }
-        ]
-    };
-    console.log('Query params: ' + queryParam);
     // let response = {
     //     "schemas": [
-    //         "urn:ietf:params:scim:schemas:core:2.0:User"
+    //         "urn:ietf:params:scim:api:messages:2.0:ListResponse"
     //     ],
-    //     "details": 'sending 404 for testing',
-    //     "status": 404,
+    //     "totalResults": 1,
+    //     "startIndex": 1,
+    //     "itemsPerPage": 1,
+    //     "Resources": [
+    //         {
+    //             "schemas": [
+    //                 "urn:ietf:params:scim:schemas:core:2.0:User"
+    //             ],
+    //             "id": '939c6caef2eb65494a888d565b0c56551',
+    //             "userName": 'rana.kuldeep@pwc.com',
+    //             "name": {
+    //                 "givenName": 'RanaaaaaaaaaaaaaaaaaaaaaaaA',
+    //                 "middleName": 'middleName',
+    //                 "familyName": 'Kuldeep'
+    //             },
+    //             "emails": [
+    //                 {
+    //                     "primary": true,
+    //                     "value": 'rana.kuldeep@pwc.com',
+    //                     "type": 'work',
+    //                     "display": 'rana.kuldeep@pwc.com'
+    //                 }
+    //             ],
+    //             "active": true,
+    //             "groups": [],
+    //             "meta": {
+    //                 "resourceType": "User"
+    //             }
+    //         }
+    //     ]
     // };
-    // res.status(404);
+    console.log('Query params: ' + queryParam);
+    let response = {
+        "schemas": [
+            "urn:ietf:params:scim:schemas:core:2.0:User"
+        ],
+        "details": 'sending 404 for testing',
+        "status": 404,
+    };
+    res.status(404);
 
     console.log(response);
     res.send(response);
