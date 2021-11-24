@@ -68,10 +68,9 @@ app.put('/ccs/update', (req, res) => {
     console.log('CCS update endpoint triggered');
     req.on('data', function (data) {
         requestBody += data;
-        body = JSON.parse(requestBody);
-        console.log(userJsonData);
+
       });
-      console.log('req.requestBody: ' + JSON.stringify(req.body));
+      console.log('requestBody: ' + JSON.stringify(requestBody));
       let response = {
         "schemas": [
             "urn:ietf:params:scim:api:messages:2.0:ListResponse"
@@ -547,6 +546,8 @@ app.put("/scim/v2/Users/:userId", function (req, res) {
     console.log(userJsonData);
 
   });
+  console.log('Home_Address');
+  console.log(userJsonData['urn:ietf:params:scim:schemas:extension:enterprise:2.0:Home_Address']);
   let response = {
     "schemas": [
         "urn:ietf:params:scim:api:messages:2.0:ListResponse"
