@@ -135,11 +135,11 @@ app.get('/scim/v2/Users', (req, res) => {
     console.log('req.headers=======================' + JSON.stringify(req.headers));
     const queryParam = req.query.filter;
     const id = '939c6caef2eb65494a888d565b0c56551';
-      if (queryParam.trim().length > 0) {
-            if (queryParam.includes('userName')) {        
-             }
-        }
-      const email = queryParam.split('"')[1];
+    //   if (queryParam.trim().length > 0) {
+    //         if (queryParam.includes('userName')) {        
+    //          }
+    //     }
+    //   const email = queryParam.split('"')[1];
     let response = {
         "schemas": [
             "urn:ietf:params:scim:api:messages:2.0:ListResponse"
@@ -175,7 +175,7 @@ app.get('/scim/v2/Users', (req, res) => {
             }
         ]
     };
-    // console.log('Query params: ' + queryParam);
+    console.log('Query params: ' + queryParam);
     // let response = {
     //     "schemas": [
     //         "urn:ietf:params:scim:schemas:core:2.0:User"
