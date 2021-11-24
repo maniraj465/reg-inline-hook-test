@@ -201,15 +201,39 @@ app.post('/scim/v2/Users', (req, res) => {
       console.log('req.requestBody' + req.requestBody);
       console.log('req.body' + req.body);
       console.log('requestBody ' + requestBody);
-    let response = {
+      const givenName = req.body.name.givenName;
+    const middleName = req.body.name.middleName;
+    const familyName = req.body.name.familyName;
+    const emailPrimary = req.body.emails[0].primary;
+    const emailValue = req.body.emails[0].value;
+    const emailType = req.body.emails[0].type;
+    const emailDisplay = req.body.emails[0].display;
+    const userName = req.body.userName;
+    const id = req.body.id;
+    let response ={
         "schemas": [
-            "urn:ietf:params:scim:schemas:core:2.0:User"
+            "urn:ietf:params:scim:api:messages:2.0:ListResponse"
         ],
-        "id": '939c6caef2eb65494a888d565b0c56551',
-        "totalResults": 0,
-        "startIndex": 1,
-        "itemsPerPage": 0,
-        "Resources": []
+        "id": id,
+        "userName": userName,
+        "name": {
+            "givenName": givenName,
+            "middleName": middleName,
+            "familyName": familyName
+        },
+        "emails": [
+            {
+                "primary": emailPrimary,
+                "value": emailValue,
+                "type": emailType,
+                "display": emailDisplay
+            }
+        ],
+        "active": true,
+        "groups": [],
+        "meta": {
+            "resourceType": "User"
+        }
     };
     console.log(response);
     res.send(response);
