@@ -194,108 +194,72 @@ app.post('/scim/v2/Users/Users', (req, res) => {
     console.log('inside create user SCIM');
     req.on('data', function (data) {
         requestBody += data;
-        console.log('requestBody ' + requestBody);
+        // console.log('requestBody ' + requestBody);
     
       });
       console.log('req.body' + req.body);
-      console.log('req.requestBody' + req.requestBody);
-      console.log('req.body' + req.body);
-      console.log('requestBody ' + requestBody);
-      const givenName = requestBody.name.givenName;
-    const middleName = requestBody.name.middleName;
-    const familyName = requestBody.name.familyName;
-    const emailPrimary = requestBody.emails[0].primary;
-    const emailValue = requestBody.emails[0].value;
-    const emailType = requestBody.emails[0].type;
-    const emailDisplay = requestBody.emails[0].display;
-    const userName = requestBody.userName;
-    const id = requestBody.id;
-    let response ={
+    
+    let response = {
         "schemas": [
-            "urn:ietf:params:scim:api:messages:2.0:ListResponse"
+            "urn:ietf:params:scim:schemas:core:2.0:User",
+            "Home_Address",
+            "hpeProfileID",
+            "Preference",
+            "Data"
         ],
-        "id": id,
-        "userName": userName,
+        "totalResults": 0,
+        "startIndex": 1,
+        "itemsPerPage": 0,
+        "userName": "todaytest26@gmail.com",
         "name": {
-            "givenName": givenName,
-            "middleName": middleName,
-            "familyName": familyName
+            "givenName": "abc123",
+            "middleName":"abc123",
+            "familyName": "user"
         },
         "emails": [
             {
-                "primary": emailPrimary,
-                "value": emailValue,
-                "type": emailType,
-                "display": emailDisplay
+                "primary": true,
+                "value": "todaytest26@gmail.com"
             }
         ],
-        "active": true,
-        "groups": [],
-        "meta": {
-            "resourceType": "User"
-        }
+        "phoneNumbers": [
+            {
+                "primary": true,
+                "value": "7888226666"
+            }
+        ],
+        "addresses": [
+            {
+                "primary": true,
+                "streetAddress": "Care road",
+                "locality": "fremont",
+                "region": "TA",
+                "postalCode": "94534"
+            }
+        ],
+        "preferredLanguage": "en",
+        "locale": "en-US",
+        "Home_Address": {
+            "hpePersonalStreetAddress": "RingRoad5",
+            "hpePersonalStreetAddress2": "BTM Layout",
+            "hpePersonalCity": "bangalore",
+            "hpePersonalState": "Delhi",
+            "hpePersonalZipCode": "700100",
+            "hpeCountryCode": "IN"
+        },
+        "hpeStreetAddress2": "Terrace update",
+        "Preference": {
+            "hpeContactPreferencePhone": "false",
+            "hpeContactPreferenceEmail": "true"
+        },
+        "Data": {
+            "hpeData1": "1003445632gh1",
+            "hpeData2": "alklkatty000111",
+            "hpeData3": "jlitrbwq"
+        },
+        "hpeCompanyName": "Intel Inc. Pvt",
+        "id": "1d55c043c07d46ecf9c66984e1ae33c9",
     };
-    // let response = {
-    //     "schemas": [
-    //         "urn:ietf:params:scim:schemas:core:2.0:User",
-    //         "Home_Address",
-    //         "hpeProfileID",
-    //         "Preference",
-    //         "Data"
-    //     ],
-    //     "totalResults": 0,
-    //     "startIndex": 1,
-    //     "itemsPerPage": 0,
-    //     "userName": "todaytest22@gmail.com",
-    //     "name": {
-    //         "givenName": "Weather",
-    //         "familyName": "Hazard"
-    //     },
-    //     "emails": [
-    //         {
-    //             "primary": true,
-    //             "value": "todaytest22@gmail.com"
-    //         }
-    //     ],
-    //     "phoneNumbers": [
-    //         {
-    //             "primary": true,
-    //             "value": "7888226666"
-    //         }
-    //     ],
-    //     "addresses": [
-    //         {
-    //             "primary": true,
-    //             "streetAddress": "Care road",
-    //             "locality": "fremont",
-    //             "region": "TA",
-    //             "postalCode": "94534"
-    //         }
-    //     ],
-    //     "preferredLanguage": "en",
-    //     "locale": "en-US",
-    //     "Home_Address": {
-    //         "hpePersonalStreetAddress": "RingRoad5",
-    //         "hpePersonalStreetAddress2": "BTM Layout",
-    //         "hpePersonalCity": "bangalore",
-    //         "hpePersonalState": "Delhi",
-    //         "hpePersonalZipCode": "700100",
-    //         "hpeCountryCode": "IN"
-    //     },
-    //     "hpeStreetAddress2": "Terrace update",
-    //     "Preference": {
-    //         "hpeContactPreferencePhone": "false",
-    //         "hpeContactPreferenceEmail": "true"
-    //     },
-    //     "Data": {
-    //         "hpeData1": "1003445632gh1",
-    //         "hpeData2": "alklkatty000111",
-    //         "hpeData3": "jlitrbwq"
-    //     },
-    //     "hpeCompanyName": "Intel Inc. Pvt",
-    //     "id": "1d55c043c07d46ecf9c66984e1ae33c9",
-    //     "statusCode": 200
-    // };
     console.log(response);
     res.send(response);
 });
