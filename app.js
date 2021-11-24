@@ -189,114 +189,112 @@ app.get('/scim/v2/Users', (req, res) => {
     res.send(response);
 });
 
-app.post('/scim/v2/Users', (req, res) => {
+app.post('/scim/v2/Users/Users', (req, res) => {
     console.log('inside create user SCIM');
-    let requestBody;
     req.on('data', function (data) {
         requestBody += data;
         console.log(requestBody);
     
       });
       console.log('req.body' + req.body);
-      console.log(requestBody);
-    //   console.log('req.requestBody' + req.requestBody);
-    //   console.log('req.body' + req.body);
-    //   console.log('requestBody ' + requestBody);
-    //   const givenName = req.body.name.givenName;
-    // const middleName = req.body.name.middleName;
-    // const familyName = req.body.name.familyName;
-    // const emailPrimary = req.body.emails[0].primary;
-    // const emailValue = req.body.emails[0].value;
-    // const emailType = req.body.emails[0].type;
-    // const emailDisplay = req.body.emails[0].display;
-    // const userName = req.body.userName;
-    // const id = req.body.id;
-    // let response ={
-    //     "schemas": [
-    //         "urn:ietf:params:scim:api:messages:2.0:ListResponse"
-    //     ],
-    //     "id": id,
-    //     "userName": userName,
-    //     "name": {
-    //         "givenName": givenName,
-    //         "middleName": middleName,
-    //         "familyName": familyName
-    //     },
-    //     "emails": [
-    //         {
-    //             "primary": emailPrimary,
-    //             "value": emailValue,
-    //             "type": emailType,
-    //             "display": emailDisplay
-    //         }
-    //     ],
-    //     "active": true,
-    //     "groups": [],
-    //     "meta": {
-    //         "resourceType": "User"
-    //     }
-    // };
-    let response = {
+      console.log('req.requestBody' + req.requestBody);
+      console.log('req.body' + req.body);
+      console.log('requestBody ' + requestBody);
+      const givenName = req.body.name.givenName;
+    const middleName = req.body.name.middleName;
+    const familyName = req.body.name.familyName;
+    const emailPrimary = req.body.emails[0].primary;
+    const emailValue = req.body.emails[0].value;
+    const emailType = req.body.emails[0].type;
+    const emailDisplay = req.body.emails[0].display;
+    const userName = req.body.userName;
+    const id = req.body.id;
+    let response ={
         "schemas": [
-            "urn:ietf:params:scim:schemas:core:2.0:User",
-            "Home_Address",
-            "hpeProfileID",
-            "Preference",
-            "Data"
+            "urn:ietf:params:scim:api:messages:2.0:ListResponse"
         ],
-        "totalResults": 0,
-        "startIndex": 1,
-        "itemsPerPage": 0,
-        "userName": "todaytest22@gmail.com",
+        "id": id,
+        "userName": userName,
         "name": {
-            "givenName": "Weather",
-            "familyName": "Hazard"
+            "givenName": givenName,
+            "middleName": middleName,
+            "familyName": familyName
         },
         "emails": [
             {
-                "primary": true,
-                "value": "todaytest22@gmail.com"
+                "primary": emailPrimary,
+                "value": emailValue,
+                "type": emailType,
+                "display": emailDisplay
             }
         ],
-        "phoneNumbers": [
-            {
-                "primary": true,
-                "value": "7888226666"
-            }
-        ],
-        "addresses": [
-            {
-                "primary": true,
-                "streetAddress": "Care road",
-                "locality": "fremont",
-                "region": "TA",
-                "postalCode": "94534"
-            }
-        ],
-        "preferredLanguage": "en",
-        "locale": "en-US",
-        "Home_Address": {
-            "hpePersonalStreetAddress": "RingRoad5",
-            "hpePersonalStreetAddress2": "BTM Layout",
-            "hpePersonalCity": "bangalore",
-            "hpePersonalState": "Delhi",
-            "hpePersonalZipCode": "700100",
-            "hpeCountryCode": "IN"
-        },
-        "hpeStreetAddress2": "Terrace update",
-        "Preference": {
-            "hpeContactPreferencePhone": "false",
-            "hpeContactPreferenceEmail": "true"
-        },
-        "Data": {
-            "hpeData1": "1003445632gh1",
-            "hpeData2": "alklkatty000111",
-            "hpeData3": "jlitrbwq"
-        },
-        "hpeCompanyName": "Intel Inc. Pvt",
-        "id": "1d55c043c07d46ecf9c66984e1ae33c9",
-        "statusCode": 200
+        "active": true,
+        "groups": [],
+        "meta": {
+            "resourceType": "User"
+        }
     };
+    // let response = {
+    //     "schemas": [
+    //         "urn:ietf:params:scim:schemas:core:2.0:User",
+    //         "Home_Address",
+    //         "hpeProfileID",
+    //         "Preference",
+    //         "Data"
+    //     ],
+    //     "totalResults": 0,
+    //     "startIndex": 1,
+    //     "itemsPerPage": 0,
+    //     "userName": "todaytest22@gmail.com",
+    //     "name": {
+    //         "givenName": "Weather",
+    //         "familyName": "Hazard"
+    //     },
+    //     "emails": [
+    //         {
+    //             "primary": true,
+    //             "value": "todaytest22@gmail.com"
+    //         }
+    //     ],
+    //     "phoneNumbers": [
+    //         {
+    //             "primary": true,
+    //             "value": "7888226666"
+    //         }
+    //     ],
+    //     "addresses": [
+    //         {
+    //             "primary": true,
+    //             "streetAddress": "Care road",
+    //             "locality": "fremont",
+    //             "region": "TA",
+    //             "postalCode": "94534"
+    //         }
+    //     ],
+    //     "preferredLanguage": "en",
+    //     "locale": "en-US",
+    //     "Home_Address": {
+    //         "hpePersonalStreetAddress": "RingRoad5",
+    //         "hpePersonalStreetAddress2": "BTM Layout",
+    //         "hpePersonalCity": "bangalore",
+    //         "hpePersonalState": "Delhi",
+    //         "hpePersonalZipCode": "700100",
+    //         "hpeCountryCode": "IN"
+    //     },
+    //     "hpeStreetAddress2": "Terrace update",
+    //     "Preference": {
+    //         "hpeContactPreferencePhone": "false",
+    //         "hpeContactPreferenceEmail": "true"
+    //     },
+    //     "Data": {
+    //         "hpeData1": "1003445632gh1",
+    //         "hpeData2": "alklkatty000111",
+    //         "hpeData3": "jlitrbwq"
+    //     },
+    //     "hpeCompanyName": "Intel Inc. Pvt",
+    //     "id": "1d55c043c07d46ecf9c66984e1ae33c9",
+    //     "statusCode": 200
+    // };
     console.log(response);
     res.send(response);
 });
