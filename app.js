@@ -192,15 +192,18 @@ app.get('/scim/v2/Users', (req, res) => {
 app.post('/scim/v2/Users/Users', (req, res) => {
     let requestBody;
     console.log('inside create user SCIM');
-    req.on('data', function (data) {
-        requestBody += data;
-        
+    req.on('data', chunk => {
+        console.log('A chunk of data has arrived: ', chunk);
+        requestBody = chunk;
       });
-      console.log('requestBody');
+      req.on('end', () => {
+        console.log('No more data');
+      })
       console.log(requestBody);
-    
+      
     let response = {
-        "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
+        "schemas": [
+            "urn:ietf:params:scim:schemas:core:2.0:User"],
         "totalResults": 0,
         "startIndex": 1,
         "itemsPerPage": 0,
