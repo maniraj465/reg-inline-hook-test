@@ -540,9 +540,10 @@ app.put("/scim/v2/Users/:userId", function (req, res) {
   console.log('req.headers=======================' + JSON.stringify(req.headers));
   console.log(JSON.stringify(req.body));
   console.log(JSON.stringify(req.payload));
+  var userJsonData;
   req.on('data', function (data) {
     requestBody += data;
-    var userJsonData = JSON.parse(requestBody);
+    userJsonData = JSON.parse(requestBody);
     console.log(userJsonData);
 
   });
