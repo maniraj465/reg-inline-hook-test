@@ -201,9 +201,9 @@ app.post('/scim/v2/Users', (req, res) => {
       });
 
       console.log(JSON.stringify(requestBody));
-      let temp = JSON.stringify(requestBody);
+    //   let temp = JSON.stringify(requestBody);
       console.log('');
-      console.log(temp['urn:ietf:params:scim:schemas:extension:enterprise:2.0:Home_Address']);
+    //   console.log(temp['urn:ietf:params:scim:schemas:extension:enterprise:2.0:Home_Address']);
     console.log('inside create user SCIM');
     console.log(requestBody);
       console.log('Hardcoded response');
